@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <META Http-Equiv="Cache-Control" Content="no-cache">
+    <META Http-Equiv="Pragma" Content="no-cache">
+    <META Http-Equiv="Expires" Content="0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/star-delivery-38f25.appspot.com/o/logo%2F20210620_101844.jpg?alt=media&token=18c05ec0-c3c3-477e-baa3-535cc1b0cbdb" type="image/jpg"/>
+    <title>Admin Login</title>
+    <script>
+     
+    </script>
+    </head>
+<body>
+  <style>
+    body
+    {
+      margin:0;
+      padding:0;
+      background: url('https://www.xmple.com/wallpaper/pink-violet-linear-gradient-1920x1080-c2-441189-891162-a-135-f-14.svg');
+      background-size:cover;
+      background-position: relative;
+
+    }
+    .loginbox{
+      width:320px;
+      height:420px;
+      background: #000;
+      color: #fff;
+      top: 50%;
+      left:50%;
+      position:absolute;
+      transform:translate(-50%,-50%);
+      box-sizing: border-box;
+      padding: 70px 30px;
+    }
+    .avatar
+    {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      position: absolute;
+      top: -50px;
+      left: calc(50% - 50px);
+    }
+    h1{
+      margin:0;
+      padding:0 0 20px;
+      text-align: center;
+      font-size: 22px;
+      text-decoration: turquoise;
+    }
+    .loginbox p{
+      margin: 0;
+      padding: 0;
+      font-weight: bold;
+    }
+    .loginbox input{
+      width:100%;
+      margin-bottom: 20px;
+    }
+    .loginbox input[type="text"],input[type="password"]
+    {
+      border: none;
+      border-bottom: 1px solid #fff;
+      background: transparent;
+      outline: none;
+      height: 40px;
+      color: #fff;
+      font-size: 16px;
+    }
+    .loginbox input[type="button"]
+    {
+      border: none;
+      outline: none;
+      height: 40px;
+      background: #7f00ff;
+      color: #fff;
+      font-size: 18px;
+      border-radius: 20px;
+    }
+    .loginbox input[type="button"]:hover
+    {
+      cursor:pointer;
+      background: #ffc107;
+      color: #000;
+
+    }
+    .loginbox input[type="reset"]
+    {
+      border: none;
+      outline: none;
+      height: 40px;
+      background: #fb2525;
+      color: #fff;
+      font-size: 18px;
+      border-radius: 20px;
+    }
+    .loginbox input[type="reset"]:hover
+    {
+      cursor:pointer;
+      background: #ffc107;
+      color: #000;
+
+    }
+    
+  </style>
+
+
+<div class="loginbox">
+  <img src="http://kuchingtaxi.com/image/admin.png" class="avatar">
+  <h1 >Admin Login</h1>
+  <form name="login">
+    <p>Username</p>
+    <input type="text" name="userid"/>
+    <p>Password</p>
+    <input type="password" name="pswrd"/>
+    <input type="button" onclick="check(this.form)" value="Login"/>
+    <input type="reset" value="Cancel"/>
+    </form>
+</div>
+
+<script language="javascript">
+  sessionStorage.setItem("user",null);
+function check(form)/*function to check userid & password*/
+{
+ /*the following code checkes whether the entered userid and password are matching*/
+ if(form.userid.value == "admin" && form.pswrd.value == "admin")
+  {
+    sessionStorage.setItem("user",form.userid.value);
+    window.open('dashboard.html','_self')/*opens the target page while Id & password matches*/
+  }
+ else
+ {
+   alert("Error Password or Username")/*displays error message*/
+  }
+}
+function godata()
+{
+  sessionStorage.setItem("user",null);
+}
+window.addEventListener('load',godata);
+</script>
+</body>
+</html>

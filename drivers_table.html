@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/star-delivery-38f25.appspot.com/o/logo%2F20210620_101844.jpg?alt=media&token=18c05ec0-c3c3-477e-baa3-535cc1b0cbdb" type="image/jpg"/>
+    <title>Drivers details</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+
+    <!-- Custom styles for this template -->
+    <link href="css/av-admin.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+</head>
+<style>
+    #myInput {
+  
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid black;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#myTable tr:nth-child(even){background-color: #f2f2f2;}
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+#myTable tr:hover {background-color: #ddd;}
+#myTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #1fd1f9;
+background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+  color: white;
+  }
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.html">
+                <div class="sidebar-brand-icon ">
+                  <img src="https://firebasestorage.googleapis.com/v0/b/star-delivery-38f25.appspot.com/o/logo%2F20210620_101844.jpg?alt=media&token=18c05ec0-c3c3-477e-baa3-535cc1b0cbdb" style="width: 60px;" class="img-profile rounded-circle"></img>
+                    
+                </div>
+                <div class="sidebar-brand-text mx-3">Daalchini</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="dashboard.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Restaurant  Menu -->
+            <li class="nav-item active">
+                <a class="nav-link" href="menu_table.html">
+                <i class="fas fa-fw fa-utensils"></i>
+                    <span>Restaurant Menu</span></a>
+            </li>
+
+            <hr class="sidebar-divider my-0">
+
+             <!-- Nav Item -  Drivers -->
+            <li class="nav-item active">
+                <a class="nav-link" href="drivers_table.html">
+                <i class="fas fa-fw fa-user"></i>
+                    <span>Drivers</span>
+                </a>
+                
+            </li>
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item -  Report Tables -->
+            <li class="nav-item">
+              <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="true" aria-controls="collapseTwo">
+                  <i class="fas fa-fw fa-cart-arrow-down"></i>
+                  <span>Orders</span>
+              </a>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                  <div class="bg-white py-2 collapse-inner rounded">
+                      <h6 class="collapse-header">Orders</h6>
+                      <a class="collapse-item" href="accept_orders.html">Accept/Decline Orders</a>
+                      <a class="collapse-item" href="order_items(driver)part2.html">Assigning Orders</a>
+                      <a class="collapse-item" href="active_orders(table).html">Active Orders</a>
+                      <a class="collapse-item" href="delivery_orders(table).html">Delivered Orders</a>
+                  </div>
+              </div>
+          </li>
+            
+
+            <hr class="sidebar-divider my-0">
+
+             <!-- Nav Item -  Report Tables -->
+            <li class="nav-item active">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Reports</span></a>
+            </li>
+
+            <hr class="sidebar-divider my-0">
+            
+
+            <!-- Nav Item -  Report Tables -->
+            <li class="nav-item active">
+                <a class="nav-link" href="users.html">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Users</span></a>
+            </li>
+            
+            <hr class="sidebar-divider my-0">
+            
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="account_statements.html ">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Account statements</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item -   -->
+            <li class="nav-item active">
+                <a class="nav-link" href="print_menu.html">
+                    <i class="fas fa-fw fa-print"></i>
+                    <span>Print Bill</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item -   -->
+            <li class="nav-item active">
+                <a class="nav-link" href="track_orders.html">
+                    <i class="fas fa-fw fa-thumbtack"></i>
+                    <span>Track orders</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item -   -->
+            <li class="nav-item active">
+                <a class="nav-link" href="cards.html">
+                    <i class="fas fa-fw fa-gift"></i>
+                    <span>Offer walls</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+            
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    
+                    
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                       
+                           
+                            
+                        
+
+                        
+
+                       
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                
+                <!-- End of Topbar -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800"></h1>
+                <a href="driver_registration3.html" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                        class="fas fa-plus fa-sm text-white-50"></i> Add Driver</a>
+            </div>
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Driver Table</h1>
+                    <p class="mb-4">This table contains  Driver Name, Address, Phone,Email Address,Working hours,working shift. </p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Driver  Details</h6>
+                        </div>
+                        <div class="card-body">
+                            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+                        
+                            <div class="card-body">
+                                <div class="table-responsive">
+                            <table id="myTable">
+                              <thead>
+                                <tr>
+                                    <th>S.No</th>
+                                     <th>Driver Name<br><button style="font-size: small"; onclick="sortTable()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button style="font-size: small"; onclick="sortTable1()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down-alt"></i></button></th>
+                                     <th>E-mail<br><button style="font-size: small"; onclick="sortTable2()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button style="font-size: small"; onclick="sortTable21()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down-alt"></i></button></th>
+                                     <th>Phone<br><button style="font-size: small"; onclick="sortTable3()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button  style="font-size: small"; onclick="sortTable31()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down-alt"></i></button></th>
+                                    <th>Address<br><button style="font-size: small"; onclick="sortTable4()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button style="font-size: small"; onclick="sortTable41()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down-alt"></i></button></th>
+                                    <th>Shift<br><button style="font-size: small"; onclick="sortTable5()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button style="font-size: small"; onclick="sortTable51()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down-alt"></i></button></th>
+                                    <th>Working Hour<br><button style="font-size: small"; onclick="sortTable6()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button style="font-size: small"; onclick="sortTable61()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
+                                    <th>Documents</th>
+                                    <th>Edit Driver</th>
+                                    <th>Delete Driver</th>                                 
+                                                                        
+                                  </tr>
+                             </thead>
+                              <tbody id='tbody1'>
+                              </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Daalchini</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/av-admin.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/charts/datatables-demo.js"></script>
+    
+  <script type="text/javascript">
+
+function sortTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("td")[1];
+      y = rows[i + 1].getElementsByTagName("td")[1];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+/////function for sortTable Z-A for restaurant//////
+
+function sortTable1() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("td")[1];
+      y = rows[i + 1].getElementsByTagName("td")[1];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+  ////-end---///
+  ////sortable2() and sorttable21()////
+function sortTable2() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("td")[2];
+      y = rows[i + 1].getElementsByTagName("td")[2];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+/////function for sortTable Z-A for restaurant//////
+
+function sortTable21() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("td")[2];
+      y = rows[i + 1].getElementsByTagName("td")[2];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+function sortTable3() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("td")[3];
+      y = rows[i + 1].getElementsByTagName("td")[3];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+/////function for sortTable Z-A for restaurant//////
+
+function sortTable31() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("td")[3];
+      y = rows[i + 1].getElementsByTagName("td")[3];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+function sortTable4() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("td")[4];
+      y = rows[i + 1].getElementsByTagName("td")[4];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+/////function for sortTable Z-A for restaurant//////
+
+function sortTable41() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("td")[4];
+      y = rows[i + 1].getElementsByTagName("td")[4];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+function sortTable5() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("td")[5];
+      y = rows[i + 1].getElementsByTagName("td")[5];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+/////function for sortTable Z-A for restaurant//////
+
+function sortTable51() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("td")[5];
+      y = rows[i + 1].getElementsByTagName("td")[5];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+function sortTable6() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("td")[6];
+      y = rows[i + 1].getElementsByTagName("td")[6];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+/////function for sortTable Z-A for restaurant//////
+
+function sortTable61() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("myTable");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("td")[6];
+      y = rows[i + 1].getElementsByTagName("td")[6];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+        function myFunction() {
+                              var input, filter, table, tr, td, i, txtValue;
+                              input = document.getElementById("myInput");
+                              filter = input.value.toUpperCase();
+                              table = document.getElementById("myTable");
+                              tr = table.getElementsByTagName("tr");
+                              for (i = 0; i < tr.length; i++) {
+                                td = tr[i].getElementsByTagName("td")[1];
+                                if (td) {
+                                  txtValue = td.textContent || td.innerText;
+                                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                    tr[i].style.display = "";
+                                  } else {
+                                    tr[i].style.display = "none";
+                                  }
+                                }       
+                              }
+                            }
+
+                            </script>
+                            
+    
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyBGQsw6dLVCQ_utGY7SHLBfg7EckVz9W0o",
+    authDomain: "star-delivery-38f25.firebaseapp.com",
+    databaseURL: "https://star-delivery-38f25-default-rtdb.firebaseio.com",
+    projectId: "star-delivery-38f25",
+    storageBucket: "star-delivery-38f25.appspot.com",
+    messagingSenderId: "351160619379",
+    appId: "1:351160619379:web:9de85e6098b55a5ace7506"
+  };
+  firebase.initializeApp(firebaseConfig);
+                            var flag=0;
+                     function addtable(a,b,c,d,e,f,g,h){
+                                        
+                                        var tbody=document.getElementById('tbody1');
+                                        var trow=document.createElement('tr');
+                                        var td1=document.createElement('td');
+                                        var td2=document.createElement('td');
+                                        var td3=document.createElement('td');
+                                        var td4=document.createElement('td');
+                                        var td5=document.createElement('td');
+                                        var td6=document.createElement('td');
+                                        var td7=document.createElement('td');
+                                        var td8=document.createElement('td');
+                                        var td9=document.createElement('td');
+                                        var td10=document.createElement('td');
+                                        var td11=document.createElement('td');
+                                        flag=flag+1;
+                                        td1.innerHTML=(flag);
+                                        td2.innerHTML=a;
+                                        td3.innerHTML=b;
+                                        td4.innerHTML=c;
+                                        td5.innerHTML=d;
+                                        td6.innerHTML=e;
+                                        
+                                        
+                                        ///anchor tag creation for proofdocument link from storage in firebase in js (own idead worked successfully) 
+                                       var space=document.createElement('td');
+                                         var anchor = document.createElement('a'); 
+                                         if( h=='null'){
+                                          // anchor='Null value';
+                                           var link = document.createTextNode(" Null   ");
+                                         anchor.appendChild(link); 
+                                          //var anchor1='Null value';
+                                          
+                                        }
+                                        else
+                                        {
+                                         var link = document.createTextNode(" ViewDocument ");
+                                         anchor.appendChild(link); 
+                                        }
+                                        
+                                         anchor.title = "Link"; 
+                                         anchor.href =h;  
+                                         ///// anchor tag creation for profilepic link from storage in firebase in js (own idead worked successfully)  
+                                         var anchor1 = document.createElement('a'); 
+                                         if( g=='null'){
+                                          // anchor='Null value';
+                                           var link1 = document.createTextNode(" Null   ");
+                                         anchor1.appendChild(link1); 
+                                          //var anchor1='Null value';
+                                          
+                                        }
+                                        else{
+                                         var link1 = document.createTextNode(" Profile Picture");
+                                         anchor1.appendChild(link1); 
+                                        }
+                                         anchor1.title = "Link"; 
+                                        
+                                         anchor1.href =g;
+
+                                        
+                                         ///////////////////////////                                    
+                                        td7.innerHTML=f;
+                                        td8.innerHTML=anchor;
+                                        td9.innerHTML=anchor1;
+                                        td10.innerHTML='<button onclick="view()"><i class="fas fa-edit"></i></button>';
+                                        td11.innerHTML='<button onclick="remove()"><i class="fas fa-trash"></i></button>';
+                                        tbody.appendChild(trow)
+                                        trow.appendChild(td1); 
+                                        trow.appendChild(td2); 
+                                        trow.appendChild(td3); 
+                                        trow.appendChild(td4); 
+                                        trow.appendChild(td5);
+                                        trow.appendChild(td6);
+                                        trow.appendChild(td7);
+                                        
+                                        trow.appendChild(anchor);
+                                       // trow.appendChild(space);
+                                        trow.appendChild(anchor1);
+                                        trow.appendChild(td10);
+                                        trow.appendChild(td11);
+
+                                    }
+                            
+                                  
+                                    function retrive(){
+                                        firebase.database().ref('Driver/').once('value',function(snapshot){
+                                            snapshot.forEach(
+                                                function(ChildSnapshot){
+                                                    let a=ChildSnapshot.val().name;
+                                                    let b=ChildSnapshot.val().email;
+                                                    let c=ChildSnapshot.val().phone;
+                                                    //let d=ChildSnapshot.child("Location/user_location").val();
+                                                    let d=ChildSnapshot.val().address;
+                                                    let e=ChildSnapshot.val().shift;
+                                                    let f=ChildSnapshot.val().work;
+                                                    let g=ChildSnapshot.child("Proof/profilepic").val();
+                                                    let h=ChildSnapshot.child("Proof/proof").val();
+                                                    //add(a,b,c,d,e);
+                                                    //console.log(a,b,c,d,e);
+                                                    addtable(a,b,c,d,e,f,g,h);
+                                                    //console.log(d.length);
+                            
+                                                }
+                                                );
+                            
+                                        });
+                                    }
+                                    //window.onload(get());
+                                    //window.addEventListener('load',get);
+
+                                    function view(){
+                                         var table = document.getElementById('myTable');
+                    var cells = table.getElementsByTagName('td');
+
+                    for (var i = 0; i < cells.length; i++) {
+                        // Take each cell
+                        var cell = cells[i];
+                        // do something on onclick event for cell
+                        cell.onclick = function () {
+                            // Get the row id where the cell exists
+                            var rowId = this.parentNode.rowIndex;
+
+                            var rowsNotSelected = table.getElementsByTagName('tr');
+                            for (var row = 0; row < rowsNotSelected.length; row++) {
+                                rowsNotSelected[row].style.backgroundColor = "";
+                                rowsNotSelected[row].classList.remove('selected');
+                            }
+                            var rowSelected = table.getElementsByTagName('tr')[rowId];
+                            rowSelected.style.backgroundColor = "yellow";
+                            rowSelected.className += " selected";
+                           // msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
+                            var dn=rowSelected.cells[1].innerHTML;
+                            var de= rowSelected.cells[2].innerHTML;
+                            var dp=rowSelected.cells[3].innerHTML;
+                            var da=rowSelected.cells[4].innerHTML;
+                            var ds=rowSelected.cells[5].innerHTML;
+                            var dw=rowSelected.cells[6].innerHTML;
+                            //var fct=rowSelected.cells[8].innerHTML;
+                           // var fp=rowSelected.cells[9].innerHTML;
+                           //alert(fn+fr+ft+st+et);
+                           var data=[];
+                           data.push(dn);
+                           data.push(de);
+                           data.push(dp);
+                           data.push(da);
+                           data.push(ds);
+                           data.push(dw);
+                           //data.push(fc);
+                           //data.push(fct);
+                         //  data.push(fp);
+                           sessionStorage.setItem('drivervalues',data);
+                           window.open('edit_driver.html','_self');
+                        }
+                    }
+                }
+
+
+
+                                     function remove(){
+                               
+                              //alert('wait have to write yet');
+                                      var table = document.getElementById('myTable');
+                    var cells = table.getElementsByTagName('td');
+
+                    for (var i = 0; i < cells.length; i++) {
+                        // Take each cell
+                        var cell = cells[i];
+                        // do something on onclick event for cell
+                        cell.onclick = function () {
+                            // Get the row id where the cell exists
+                            var rowId = this.parentNode.rowIndex;
+
+                            var rowsNotSelected = table.getElementsByTagName('tr');
+                            for (var row = 0; row < rowsNotSelected.length; row++) {
+                                rowsNotSelected[row].style.backgroundColor = "";
+                                rowsNotSelected[row].classList.remove('selected');
+                            }
+                            var rowSelected = table.getElementsByTagName('tr')[rowId];
+                            rowSelected.style.backgroundColor = "yellow";
+                            rowSelected.className += " selected";
+                           // msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
+                            var dph=rowSelected.cells[3].innerHTML;
+
+                              firebase.database().ref('Driver/'+dph).remove()
+                              firebase.database().ref('Pending Drivers/'+dph).remove()
+
+                              alert('deleted')
+                              location.reload();
+                              //location.reload();
+                           
+                        }
+                    }
+
+                            }
+                            //////////deleting function ends here////////////
+                                    window.addEventListener('load',retrive);
+
+    
+                             </script>
+
+</body>
+
+</html>

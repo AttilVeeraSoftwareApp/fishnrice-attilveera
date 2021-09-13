@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/star-delivery-38f25.appspot.com/o/logo%2F20210620_101844.jpg?alt=media&token=18c05ec0-c3c3-477e-baa3-535cc1b0cbdb" type="image/jpg"/>
+	<title>
+		Order assigning success
+	</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<style>
+  *{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  .flex-parent {
+  display: flex;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+button.margin-right {
+  margin-right: 20px;
+ 
+}
+  
+</style>
+</head>
+<body>
+  <button type="submit"  id="p" style="padding: 15px 32px; margin-left: 45%;" class="btn btn-success" onclick="show()">Pick up</button>
+  <a  id="a1" href="dashboard.html" class="btn btn-primary  ">
+    Go back
+ </a>
+  <div class="flex-parent jc-center" id="img1" style="visibility: hidden;">
+    <img src="https://i.pinimg.com/originals/e5/6d/4a/e56d4afe4614e549e07f6995467c57a4.gif" height="380px"  style="align-items: center; justify-content: center;"></div>
+    <h3 id="i1" align="center" style="visibility: hidden;">Order is assigned successfully</h3>
+    <h3  align="center" style="align-items: center; visibility: hidden;" id='para' ></h3>
+    <div class="flex-parent jc-center">
+      <button type="submit" id="i3" class="green margin-right" style="background-color: coral;padding: 15px 32px; visibility: hidden;" onclick="back1()">Go Back</button>
+      <button type="submit" id="i4" class="magenta" style="background-color: coral;padding: 15px 32px; visibility: hidden;" onclick="assign()">Assign Items</button>
+    </div>
+  </div>
+  
+	<script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-database.js"></script>
+<script type="text/javascript">
+	var firebaseConfig = {
+  //here i have used tutorial project
+     apiKey: "AIzaSyBGQsw6dLVCQ_utGY7SHLBfg7EckVz9W0o",
+    authDomain: "star-delivery-38f25.firebaseapp.com",
+    databaseURL: "https://star-delivery-38f25-default-rtdb.firebaseio.com",
+    projectId: "star-delivery-38f25",
+    storageBucket: "star-delivery-38f25.appspot.com",
+    messagingSenderId: "351160619379",
+    appId: "1:351160619379:web:9de85e6098b55a5ace7506"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+// Set database variable
+//sessionStorage.setItem('value',0);
+var database = firebase.database()
+	console.log(sessionStorage.getItem('orderid'));
+	var o=sessionStorage.getItem('orderid')
+	console.log(sessionStorage.getItem('driver'));
+	var d=sessionStorage.getItem('driver');
+document.getElementById('para').innerHTML='Sit relaxed , Order = '+o+' is taken care by = '+d;
+function remove(){
+      var username = sessionStorage.getItem('driver');
+      var o=sessionStorage.getItem('orderid')
+  database.ref('Active Orders/'+d+'/').set({
+              driver_number:username,
+              order_id:o
+          })
+
+ var today = new Date();
+          var dd = today.getDate();
+
+          var mm = today.getMonth()+1; 
+          var yyyy = today.getFullYear();
+          if(dd<10) 
+          {
+              dd='0'+dd;
+          } 
+
+          if(mm<10) 
+          {
+              mm='0'+mm;
+          } 
+          today = dd+'-'+mm+'-'+yyyy;
+ database.ref('Pending Drivers/' + username).remove()
+database.ref('Accepted Orders/'+today+'/'+ o).remove()
+
+ // alert('deleted')
+
+}
+window.addEventListener('load',remove);
+function back1()
+{
+  window.open('order_items(driver)part2.html','_self');
+}
+function assign()
+{
+  window.open('index.html','_self');
+}
+function show()
+{
+document.getElementById("img1").style.visibility="visible";
+document.getElementById("i1").style.visibility="visible";
+document.getElementById("para").style.visibility="visible";
+document.getElementById("i3").style.visibility="visible";
+document.getElementById("i4").style.visibility="visible";
+document.getElementById("p").style.visibility="hidden";
+document.getElementById("a1").style.visibility="hidden";
+}
+</script>
+</body>
+</html>

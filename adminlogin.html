@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<style>
+		body{
+	margin:0;
+	padding: 0;
+	font-family: sans-serif;
+}
+*{
+	box-sizing: border-box;
+	outline: none!important;
+}
+
+.login-page{
+	background-image: url('https://www.xmple.com/wallpaper/pink-violet-linear-gradient-1920x1080-c2-441189-891162-a-135-f-14.svg');
+	background-size: cover;
+	height: 100vh;
+	position: relative;
+}
+.login-page:after{
+content: '';
+position: absolute;
+left: 0px;
+top: 0px;
+height: 100%;
+width: 100%;
+background-color: rgba(0,0,0,.5);
+z-index: 1;
+}
+.login-page .box{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	display: flex;
+	flex-direction: column;
+	width: 280px;
+	z-index: 2;
+}
+
+.login-page .box .form-head h2{
+text-align: center;
+margin:10px 0px 20px;
+color:#ffffff;
+}
+
+.login-page .box .form-body{
+display: flex;
+flex-direction: column;
+}
+.login-page .box .form-body input{
+height: 40px;
+margin-bottom: 20px;
+border:1px solid #ffffff;
+width: 100%;
+background-color: transparent;
+border-radius: 20px;
+text-align: center;
+color:#ffffff;
+transition:box-shadow .5s ease;
+}
+.login-page .box .form-body input:focus{
+	box-shadow: 0px 0px 10px black;
+}
+.login-page .box .form-body input::placeholder{
+	color:#ffffff;
+	}
+	.login-page .box .form-footer {
+		text-align: center;
+
+	}
+.login-page .box .form-footer input[type="button"]{
+
+	border: none;
+      outline: none;
+      height: 40px;
+	  width: 150px;
+      background: #7f00ff;
+      color: #fff;
+      font-size: 18px;
+      border-radius: 20px;
+}
+.login-page .box .form-footer  input[type="button"]:hover{
+	cursor:pointer;
+      background: #ffc107;
+      color: #000;
+
+}
+
+
+
+
+
+	</style>
+
+  <section class="login-page">
+  	 <form>
+  	 	 <div class="box">
+  	 	 	   <div class="form-head">
+  	 	 	   	  <h2>Admin Login</h2>
+  	 	 	   </div>
+  	 	 	   <div class="form-body">
+  	 	 	   	  <input type="text" name="userid" placeholder="Enter name" />
+  	 	 	   	  <input type="Password" name="pswrd" placeholder="Password" />
+  	 	 	   </div>
+  	 	 	   <div class="form-footer">
+  	 	 	   	  <input type="button" onclick="check(this.form)" value="Sign in">
+  	 	 	   </div>
+  	 	 </div>
+  	 </form>
+  </section>
+  <script language="javascript">
+	function check(form)/*function to check userid & password*/
+	{
+	 /*the following code checkes whether the entered userid and password are matching*/
+	 if(form.userid.value == "admin" && form.pswrd.value == "admin")
+	  {
+		window.open('index.html','_self')/*opens the target page while Id & password matches*/
+	  }
+	 else
+	 {
+	   alert("Error Password or Username")/*displays error message*/
+	  }
+	}
+	</script>
+</body>
+</html>

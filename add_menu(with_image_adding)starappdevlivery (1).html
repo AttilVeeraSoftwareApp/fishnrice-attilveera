@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/star-delivery-38f25.appspot.com/o/logo%2F20210620_101844.jpg?alt=media&token=18c05ec0-c3c3-477e-baa3-535cc1b0cbdb" type="image/jpg"/>
+    <title>Add menu</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/av-admin.min.css" rel="stylesheet">
+
+   
+</head>
+<style>
+    .modal-confirm {    
+  color: #636363;
+  width: 325px;
+  font-size: 14px;
+}
+.modal-confirm .modal-content {
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+}
+.modal-confirm .modal-header {
+  border-bottom: none;   
+  position: relative;
+}
+.modal-confirm h4 {
+  text-align: center;
+  font-size: 26px;
+  margin: 30px 0 -15px;
+}
+.modal-confirm .form-control, .modal-confirm .btn {
+  min-height: 40px;
+  border-radius: 3px; 
+}
+.modal-confirm .close {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+} 
+.modal-confirm .modal-footer {
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 13px;
+} 
+.modal-confirm .icon-box {
+  color: #fff;    
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: -70px;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  z-index: 9;
+  background: #82ce34;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.modal-confirm .icon-box i {
+  font-size: 58px;
+  position: relative;
+  top: 3px;
+}
+.modal-confirm.modal-dialog {
+  margin-top: 80px;
+}
+.modal-confirm .btn {
+  color: #fff;
+  border-radius: 4px;
+  background: #82ce34;
+  text-decoration: none;
+  transition: all 0.4s;
+  line-height: normal;
+  border: none;
+}
+.modal-confirm .btn:hover, .modal-confirm .btn:focus {
+  background: #6fb32b;
+  outline: none;
+}
+.trigger-btn {
+  display: inline-block;
+  margin: 100px auto;
+}
+</style>
+
+<body class="bg-gradient-primary">
+
+    <div class="container" >
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-img"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">ADD MENU DETAILS</h1>
+                                        <h4 id="error" style= "color:red;visibility: hidden;"> Please Enter all details </h4>
+                                    </div>
+                                    <form class="user" onsubmit="return false">
+                                        <div class="form-group">
+                                            <h4>Food Period</h4>
+                                            
+                                            <input type="radio" name="period" value='Morning'> Morning&nbsp 
+                                            <input type="radio" name="period" value='Afternoon'> Afternoon&nbsp 
+                                            <input type="radio" name="period" value='Evening'> Evening&nbsp 
+                                            <input type="radio" name="period" value='Night'>Night
+                                        </div>
+                                        <div class="form-group">
+                                            <h4>Food Timings:</h4>
+                                            From: <input type="time" id='from' name="time" value='from'>&nbsp&nbsp &nbsp  To: <input type="time" id='to'name="time" value='to'>
+                                            
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <h4>Food Type</h4>
+                                            <h4 id="error" style= "color:red"> </h4>
+                                            <input type="radio" name="dish" value='veg'>&nbsp Veg &nbsp
+                                            <input type="radio" name="dish" value='nonveg'>&nbsp Non-Veg 
+                                        </div>
+                                        <div class="form-group">
+                                            <h4>Food Category</h4>
+                                             <select id="mySelect">
+                                                <option value="select">Select</option>
+                                                <option value="tiffin">Tiffin</option>
+                                                <option value="meals">Meals</option>
+                                                <option value="beverages">Beverages</option>
+                                                <option value="starters">Starters</option>
+                                                <option value="main-dish">Main Dish</option>
+                                                <option value="gravy">Gravy</option>
+                                                <option value="soup">Soup</option>
+                                                <option value="snacks">Snacks</option>
+                                            </select>
+
+                                        </div>
+                                    
+                                        <div class="form-group">
+                                            <p style="color:orangered;font-size: 12px;">Do not use special characters"!@#$%^&*()+-"</p>
+                                            <input type="text" class="form-control form-control-user"
+                                                id="b" placeholder="Food Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="c" placeholder="Food price">
+                                        </div>
+                                         <div class="form-group">
+                                            <h4 id="error1" style= "color:red"> </h4>
+                                            <h4>Cuisine</h4>
+                                            <input type="radio" name="cusine"  value="South Indian">&nbsp South Indian<br>
+                                            <input type="radio" name="cusine"  value="Chinese"> &nbspChinese<br>
+		
+		                                    <input type="radio" name="cusine"  value="North Indian">&nbsp North Indian<br>
+		
+                                            <input type="radio" name="cusine"  value="Arabic">&nbspArabic<br>
+                                            <input type="radio" name="cusine" value="American"> American<br><br>
+                                        </div>
+                                        <div class="form-group">
+                                             <button class="btn btn-primary btn-user btn-block" onclick='search()'>Search Image</button>
+                                             <p id='para'style='visibility: hidden;color:red;'>Fetching image, please wait..</p>
+                                            <label>Search Food Image and Add Item</label>
+                                            <img id="myimg" width="10px" height="10px" src="https://image.freepik.com/free-vector/salmon-sushi-with-chopstick-plate-cartoon-icon-illustration-japanese-food-icon-concept-isolated-flat-cartoon-style_138676-1727.jpg" style="visibility: hidden;"><label id="UpProgress"></label>
+                                        </div>
+
+                                        <button onclick='offerpage()'  id="offerbutton" style="visibility: hidden;">Add Offers</button>
+                                    </form>
+                                    
+                                    <hr>
+                                    <div class="text-center">
+                                        <a href="#myModal2"  data-toggle="modal"><button class="btn btn-primary btn-user "onclick='save()' style="visibility: hidden;"id='addbtn'>
+                                           Add Item +
+                                         </button></a>
+                                         <hr>
+                                         <div class="text-center">
+                                            <a href="menu_table.html" class="btn btn-primary btn-user btn-block">
+                                              Go Back
+                                             </a>
+
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div id="myModal2" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="icon-box">
+                <i class="material-icons">&#xE876;</i>
+              </div>        
+              <h4 class="modal-title w-100">Awesome!</h4> 
+            </div>
+            <div class="modal-body">
+              <p class="text-center">The menu details are added successfully!</p>
+            </div>
+            <div class="modal-footer">
+                    <!--<a class="btn btn-success btn-block" href="add_menu(with_image_adding)starappdevlivery (1).html">OK</a>-->
+                    <button class="btn btn-success btn-block" onclick="ok()">OK</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>
+<script type="text/javascript">
+
+// Initialize Firebase
+
+var url1;
+var firebaseConfig = {
+  //here i have use develope project
+  
+  apiKey: "AIzaSyBGQsw6dLVCQ_utGY7SHLBfg7EckVz9W0o",
+    authDomain: "star-delivery-38f25.firebaseapp.com",
+    databaseURL: "https://star-delivery-38f25-default-rtdb.firebaseio.com",
+    projectId: "star-delivery-38f25",
+    storageBucket: "star-delivery-38f25.appspot.com",
+    messagingSenderId: "351160619379",
+    appId: "1:351160619379:web:9de85e6098b55a5ace7506"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+// Set database variable
+var database = firebase.database()
+
+var url = sessionStorage.getItem("url");
+/*
+function upload(){
+        ImgName=document.getElementById('b').value;
+        var uploadTask=firebase.storage().ref('Images/'+ImgName+".png").put(document.getElementById('g').files[0]);
+       // console.log(files[0]);
+
+        uploadTask.on('stage_changed',function(snapshot){
+            //var progress=(snapshot.bytesTranferred/snapshot.totalBytes)*100;
+           // document.getElementById('UpProgress').innerHTML='uploaded successfully';
+        },
+
+        ////------error handling----//////
+
+        function(error)
+        {
+               alert('error in saving the file');
+        },
+    
+////----submit image link to database ---/////
+        function()
+        {
+            uploadTask.snapshot.ref.getDownloadURL().then(function(url){
+                ImgUrl=url;
+                save(ImgUrl);
+               // console.log(ImgUrl);
+
+            });
+         }
+    );
+
+}
+*/
+function offerpage(){
+	 var selecttype = document.querySelector('input[name="dish"]:checked');
+    var selectcusine = document.querySelector('input[name="cusine"]:checked');
+    var selectperiod = document.querySelector('input[name="period"]:checked'); 
+     var selectcatg = document.getElementById("mySelect").value;
+     if(selecttype!= null && selectcusine != null && selectperiod!=null && selectcatg!='select'){
+     	var type = selecttype.value;
+         var cusine= selectcusine.value;
+          var period= selectperiod.value
+          var url = sessionStorage.getItem("url");
+          var food = document.getElementById('b').value;
+          var fromtime=document.getElementById('from').value;
+          var totime=document.getElementById('to').value;
+          var rate = document.getElementById('c').value;
+          url=url+'/'+type+'/'+cusine+'/'+selectcatg+'/';
+          sessionStorage.setItem('offerurl',url);
+          sessionStorage.setItem('offerfood',food);
+          sessionStorage.setItem('offerfrom',fromtime);
+          sessionStorage.setItem('offerto',totime);
+          sessionStorage.setItem('offerrate',rate);
+          sessionStorage.setItem('offertype',type);
+          sessionStorage.setItem('offercuisine',cusine);
+          sessionStorage.setItem('offercatg',selectcatg);
+          
+          //alert('redirecting to offers page');
+         window.open('offerwallsform1.html','_self');
+
+
+     }
+     else{
+     	alert('enter all details and then click offer ')
+     }
+
+
+}
+function save(){
+    var selecttype = document.querySelector('input[name="dish"]:checked');
+    var selectcusine = document.querySelector('input[name="cusine"]:checked');
+    var selectperiod = document.querySelector('input[name="period"]:checked'); 
+     var selectcatg = document.getElementById("mySelect").value;
+    var ImgUrl=sessionStorage.getItem("foodimgurl");
+    console.log(ImgUrl);           
+    if(selectcatg!='select'){
+              
+            if(selecttype!= null && selectcusine != null && selectperiod!=null) { 
+                document.getElementById("error").style.visibility='hidden';
+               
+                var type = selecttype.value;
+                var cusine= selectcusine.value;
+                var period= selectperiod.value;
+                var url = sessionStorage.getItem("url");
+                var food = document.getElementById('b').value;
+                var rate = document.getElementById('c').value;
+                var fromtime=document.getElementById('from').value;
+                var totime=document.getElementById('to').value;
+                
+                url=url+'/'+type+'/'+cusine+'/'+selectcatg+'/';
+                console.log(url);
+                 database.ref(url+food).set({
+                      foodname:food,
+                      foodrate:rate,
+                      availability:"yes",
+                      starttime:fromtime,
+                      endtime:totime,
+                      foodimg: ImgUrl,
+                      cuisine:cusine,
+                      category:selectcatg
+                    })
+                  //alert('Saved,Enter New one');
+                  //location.reload();
+
+            } 
+            else { 
+                document.getElementById("error").style.visibility='visible';
+                
+                }
+    }
+    else{
+        alert('please select Category');
+    }
+            
+
+}
+//function save(a){
+  //  var url1=a;
+    //add(url1);
+    //console.log(url1);
+
+//}
+//function that displays correct image for the entered foodname if there is match found in db.
+/*function display(a){
+    var ImgName=a;
+    firebase.database().ref('images/'+ImgName).on('value',function(snapshot){
+        document.getElementById('myimg').style.visibility='visible';
+        document.getElementById('myimg').width='200';
+        document.getElementById('myimg').height='200';
+        document.getElementById('myimg').src=snapshot.val().imgurl;
+        url1=snapshot.val().imgurl;
+        document.getElementById('para').style.visibility='hidden';
+        document.getElementById('addbtn').style.visibility='visible';
+
+       //save(url);
+       sessionStorage.setItem('imgurl',url1);
+
+    });
+}
+///fucnction which display common image where there is no foodname match
+function noimage(a){
+    firebase.database().ref('images/nomatch').on('value',function(snapshot){
+        document.getElementById('myimg').style.visibility='visible';
+        document.getElementById('myimg').width='200';
+        document.getElementById('myimg').height='200';
+        document.getElementById('myimg').src=snapshot.val().imgurl;
+        
+         url1=snapshot.val().imgurl;
+         document.getElementById('para').style.visibility='hidden';
+         document.getElementById('addbtn').style.visibility='visible';
+         sessionStorage.setItem('imgurl',url1);
+        //save(url);
+
+    });
+}*/
+///fucntion that searchs the food image
+function search(){
+    var text = document.getElementById("b").value;
+  var res=text.toLowerCase();
+  var val=res.split(' ');
+  var str=''
+  for(var i=0;i<val.length;i++){
+      str=str+val[i];
+  }
+    ImgName=str;
+    //ImgName=document.getElementById('b').value;
+    url1="https://image.freepik.com/free-vector/salmon-sushi-with-chopstick-plate-cartoon-icon-illustration-japanese-food-icon-concept-isolated-flat-cartoon-style_138676-1727.jpg"
+    document.getElementById('addbtn').style.visibility='visible';
+    document.getElementById('offerbutton').style.visibility='visible';
+    document.getElementById('para').style.visibility='hidden';
+    sessionStorage.setItem('foodimgurl',url1);
+    document.getElementById('para').style.visibility='visible';
+
+    firebase.database().ref('images/'+ImgName).on('value',function(snapshot){
+        document.getElementById('para').style.visibility='hidden';
+        document.getElementById('myimg').style.visibility='visible';
+        document.getElementById('myimg').width='200';
+        document.getElementById('myimg').height='200';
+        document.getElementById('myimg').src=snapshot.val().imgurl;
+        url1=snapshot.val().imgurl;
+        document.getElementById('para').style.visibility='hidden';
+       
+       //save(url);
+       sessionStorage.setItem('foodimgurl',url1);
+    });
+}
+function ok()
+{
+    location.reload();
+}
+</script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+   
+</body>
+
+</html>

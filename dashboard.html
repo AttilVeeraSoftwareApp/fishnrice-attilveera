@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/star-delivery-38f25.appspot.com/o/logo%2F20210620_101844.jpg?alt=media&token=18c05ec0-c3c3-477e-baa3-535cc1b0cbdb" type="image/jpg"/>
+    <title>Daalchini - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+    <!-- Custom styles for this template-->
+    <link href="css/av-admin.min.css" rel="stylesheet">
+
+</head>
+<style>
+.navbar nav ul li a:hover{
+    color: beige;
+}
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: auto;
+    content: "";
+    background-color: rgba(0,0,0,0);
+}
+.card-body:hover{
+    box-shadow: 0 0 34px 0 gray;
+    
+}
+</style>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.html">
+                <div class="sidebar-brand-icon ">
+                    <!--<i class="fas fa-laugh-wink"></i>-->
+                    <img src="https://firebasestorage.googleapis.com/v0/b/star-delivery-38f25.appspot.com/o/logo%2F20210620_101844.jpg?alt=media&token=18c05ec0-c3c3-477e-baa3-535cc1b0cbdb" style="width: 60px;" class="img-profile rounded-circle"></img>
+                </div>
+                <div class="sidebar-brand-text mx-3">Daalchini</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="dashboard.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            
+
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="menu_table.html">
+                <i class="fas fa-fw fa-utensils"></i>
+                    <span>Restaurant Menu</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+             <!-- Nav Item -  Drivers -->
+            <li class="nav-item active">
+                <a class="nav-link" href="drivers_table.html">
+                <i class="fas fa-fw fa-user"></i>
+                    <span>Drivers</span>
+                </a>
+                
+            </li>
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item -  Report Tables -->
+            <li class="nav-item">
+                <a class="nav-link collapsed"  data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cart-arrow-down"></i>
+                    <span>Orders</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Orders</h6>
+                        <a class="collapse-item" href="accept_orders.html">Accept/Decline Orders</a>
+                        <a class="collapse-item" href="order_items(driver)part2.html">Assigning Orders</a>
+                        <a class="collapse-item" href="active_orders(table).html">Active Orders</a>
+                        <a class="collapse-item" href="delivery_orders(table).html">Delivered Orders</a>
+                    </div>
+                </div>
+            </li>
+
+            <hr class="sidebar-divider my-0">
+
+             <!-- Nav Item -  Report Tables -->
+            <li class="nav-item active">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Reports</span></a>
+            </li>
+
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item -  Report Tables -->
+            <li class="nav-item active">
+                <a class="nav-link" href="users.html">
+                    <span class="icon"><i class="fas fa-users"></i></span>
+                    <span>Users</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+             <!-- Nav Item -  Report Tables -->
+             <li class="nav-item active" id="rest">
+                <a class="nav-link" href="account_statements.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Account statements</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Offer walls -->
+            <li class="nav-item active">
+                <a class="nav-link" href="print_menu.html">
+                    
+                    <i class="fas fa-fw fa-print"></i>
+                    <span>Print Bill</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Offer walls -->
+            <li class="nav-item active">
+                <a class="nav-link" href="track_orders.html">
+                    
+                    <i class="fas fa-fw fa-thumbtack"></i>
+                    <span>Track orders</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item - Offer walls -->
+            <li class="nav-item active">
+                <a class="nav-link" href="cards.html">
+                    
+                    <i class="fas fa-fw fa-gift"></i>
+                    <span>Offer walls</span></a>
+            </li>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+            
+                <button class="rounded-circle border-0"  id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <div class="text-center d-none d-md-inline">
+            
+                        <button class="rounded-circle border-0"  id="sidebarToggle"><i class="fa fa-bars"></i></button>
+                    </div>
+
+                    
+                    
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                       
+                           
+                            
+                        
+
+                        
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin logout</span>
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                
+                                
+                               
+                           
+                                <a class="dropdown-item" href="index.html" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                   
+                    <!-- Sidebar Toggler (Sidebar) -->
+                    <div class="text-center d-none d-md-inline">
+                    
+                        <button class="rounded-circle border-0"  id="sidebarToggle"></button>
+                    </div>
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <a href="successpopup.html" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Accept/Decline Orders</div>
+                                                <a href="accept_orders.html" class="stretched-link"></a>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                <p id='po'></p></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Monthly) Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Active Orders</div>
+                                                <a href="active_orders(table).html" class="stretched-link"></a>
+                                               
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                <p id='ao'></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Orders count-->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Orders Count
+                                            </div>
+                                            <a href="account_statements.html" class="stretched-link"></a>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><p id='oc'></p></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Earnings (Monthly) Card Example -->
+                        
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                               No of users</div>
+                                               <a href="users.html" class="stretched-link"></a>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><p id="nu"></p></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+
+                    <div class="row">
+
+                        <!-- Bar Chart -->
+                        <div class="col-xl-8 col-lg-7">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                    
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body" style="pointer-events: none;">
+                                    <div class="chart-area">
+                                        <canvas id="myBarChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pie Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div
+                                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                                    
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="mt-4 text-center small">
+                                        <h6>Revenue Generated Till now,</h6>
+                                        <span class="mr-2" >
+                                            <i class="fas fa-circle text-primary"> <h6 id="p1"></h6></i>
+                                        </span>&nbsp &nbsp;
+                                        <span class="mr-2">
+                                            <i class="fas fa-circle text-success"> <h6 id="p2"></h6></i>
+                                        </span>
+                                    </div>
+                                    <div class="chart-pie pt-4 pb-2" style="pointer-events: none;">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
+                        <!-- Content Column -->
+                        <div class="col-lg-6 mb-4">
+
+                            <!-- Project Card Example -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Account statements</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;height: 300px;"
+                                            src="https://cdn-aphob.nitrocdn.com/QGFgjuDBfbpdNVQqCIBkHNLUZkdHwduy/assets/static/source/wp-content/uploads/2021/02/f70548d9907c450659a73a31c2684403.CustomErp1.gif" alt="...">
+                                    </div>
+                                    <p align="justify">View the perfect details in a better way form of representation, a
+                                        clear view of Account statement details !</p>
+                                    <a target="_self" rel="nofollow" href="account_statements.html">View details
+                                         &rarr;</a>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                            <!-- Color System -->
+                            <div class="row">
+                                <div class="col-lg-6 mb-4">
+                                    
+                                
+                                
+                                
+                              </div>
+
+                        </div>
+
+                        <div class="col-lg-6 mb-4">
+
+                            <!-- Illustrations -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Detailed reports</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                                            src="https://static.wixstatic.com/media/2f860b_0ffada2bbaf94379b1bbb614acd1c106~mv2.gif" alt="...">
+                                    </div>
+                                    <p align="justify">View the perfect details in a better way form of representation, a
+                                        clear view of previous and current records!</p>
+                                    <a target="_self" rel="nofollow" href="charts.html">View reports
+                                         &rarr;</a>
+                                </div>
+                            </div>
+
+                            <!-- Approach -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">User reports</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                                            src="https://miro.medium.com/max/1600/1*oVbBdRUlndQPAl3tvB-qYg.gif" alt="...">
+                                    </div>
+                                    <p align="justify">This gives you the database of user registered </p>
+                                    <p class="mb-0"></p>
+                                    <a target="_self" rel="nofollow" href="users.html">View user reports
+                                        &rarr;</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Daalchini</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary"  href="index.html" onclick="clear()">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/av-admin.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+  
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+  //here i have used tutorial project
+      apiKey: "AIzaSyBGQsw6dLVCQ_utGY7SHLBfg7EckVz9W0o",
+    authDomain: "star-delivery-38f25.firebaseapp.com",
+    databaseURL: "https://star-delivery-38f25-default-rtdb.firebaseio.com",
+    projectId: "star-delivery-38f25",
+    storageBucket: "star-delivery-38f25.appspot.com",
+    messagingSenderId: "351160619379",
+    appId: "1:351160619379:web:9de85e6098b55a5ace7506"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+// Set database variable
+//sessionStorage.setItem('value',0);
+var database = firebase.database()
+ 
+
+
+    function get(){
+        var total=0;
+    var today = new Date();
+    var dd = today.getDate();
+
+    var mm = today.getMonth()+1; 
+    var yyyy = today.getFullYear();
+    if(dd<10) 
+    {
+        dd='0'+dd;
+    } 
+
+    if(mm<10) 
+    {
+        mm='0'+mm;
+    } 
+    today = dd+'-'+mm+'-'+yyyy;
+            firebase.database().ref('Orders/'+today+'/').once('value',function(snapshot){
+                snapshot.forEach(
+                    function(ChildSnapshot){
+                        let e=ChildSnapshot.val().total_amount;
+                        let k=parseInt(e);
+                        total=total+k;
+                        //console.log(total);
+                        drawchart(total);
+
+                    }
+
+                    );
+            });
+function drawchart(t){
+    Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+
+// Pie Chart Example
+
+var ctx = document.getElementById("myPieChart");
+var myPieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: [],
+    datasets: [{
+      data: [],
+      backgroundColor: ['#4e73df', '#5aa88c'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: true,
+      caretPadding: 10,
+    },
+    legend: {
+      display: false
+    },
+    cutoutPercentage: 80,
+  },
+});
+
+var x=t;//sessionStorage.getItem('totalsum');
+var y=20000;
+var x1="Revenue";
+var y1='Balance Achievement'
+document.getElementById('p1').innerHTML=''+x1+'='+x.toString();
+document.getElementById('p2').innerHTML=''+y1+'='+(y-x).toString();
+myPieChart.data.labels.push(x1);
+myPieChart.data.labels.push(y1);
+myPieChart.data.datasets.forEach((dataset) => {
+  dataset.data.push(x);
+  dataset.data.push(y-x);
+});
+myPieChart.update();
+        }
+}
+function activecountandpendingcount(){
+     var counters=0;
+     var counters1=0;
+     var counters2=0;
+     var counters3=0;
+         var today = new Date();
+    var dd = today.getDate();
+
+    var mm = today.getMonth()+1; 
+    var yyyy = today.getFullYear();
+    if(dd<10) 
+    {
+        dd='0'+dd;
+    } 
+
+    if(mm<10) 
+    {
+        mm='0'+mm;
+    } 
+    today = dd+'-'+mm+'-'+yyyy;
+        let refe=firebase.database().ref('Pending Orders/'+today+'/');
+        refe.on('value',godata)
+        function godata(data){
+            let info = data.val();
+            if(info!=null){
+            let keys=Object.keys(info);
+            counters=keys.length;
+            document.getElementById('po').innerHTML=counters;
+        }
+        else{
+          document.getElementById('po').innerHTML=counters; 
+        }
+    }
+        let refe1=firebase.database().ref('Active Orders/');
+        refe1.on('value',godata1)
+        function godata1(data){
+            let info = data.val();
+            if(info!=null){
+            let keys=Object.keys(info);
+            counters1=keys.length;
+            document.getElementById('ao').innerHTML=counters1;
+        }
+        else{
+          document.getElementById('ao').innerHTML=counters1; 
+        }
+    } 
+    var today = new Date();
+    var dd = today.getDate();
+
+    var mm = today.getMonth()+1; 
+    var yyyy = today.getFullYear();
+    if(dd<10) 
+    {
+        dd='0'+dd;
+    } 
+
+    if(mm<10) 
+    {
+        mm='0'+mm;
+    } 
+    today = dd+'-'+mm+'-'+yyyy;
+    console.log(today);
+    let refe2=firebase.database().ref('Orders/'+today+'/');
+        refe2.on('value',godata2)
+        function godata2(data){
+            let info = data.val();
+            if(info!=null){
+            let keys=Object.keys(info);
+            counters2=keys.length;
+            document.getElementById('oc').innerHTML=counters2;
+        }
+        else{
+          document.getElementById('oc').innerHTML=counters2; 
+        }
+    } 
+       let refe3=firebase.database().ref('StarDelivery/User/');
+        refe3.on('value',godata3)
+        function godata3(data){
+            let info = data.val();
+            if(info!=null){
+            let keys=Object.keys(info);
+            counters2=keys.length;
+            document.getElementById('nu').innerHTML=counters2;
+        }
+        else{
+          document.getElementById('nu').innerHTML=counters2; 
+        }
+    }        
+        
+}
+var bardataarray=[];
+var barlabelarray=[];
+                    function retrive(dateval){
+                                        var date = dateval;
+                                        total1=0
+                                        firebase.database().ref('Orders/'+date+'/').once('value',function(snapshot){
+                                            snapshot.forEach(
+                                                function(ChildSnapshot){
+                                                    let e=ChildSnapshot.val().total_amount;
+                                                    let k=parseInt(e);
+                                                    total1=total1+k;
+                                                }
+                                                );
+                                            pusharray(date,total1);
+                                        });
+                                       
+                                    }
+                                    function pusharray(date,sum){
+                                        var s=sum
+                                        var d=date
+                                            bardataarray.push(s);
+                                            barlabelarray.push(d);
+                                            drawchart1(bardataarray,barlabelarray);
+                                    }
+                                    function drawchart1(bardataarray,barlabelarray){
+                                        Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+                                            Chart.defaults.global.defaultFontColor = '#858796';
+
+                                            function number_format(number, decimals, dec_point, thousands_sep) {
+                                              // *     example: number_format(1234.56, 2, ',', ' ');
+                                              // *     return: '1 234,56'
+                                              number = (number + '').replace(',', '').replace(' ', '');
+                                              var n = !isFinite(+number) ? 0 : +number,
+                                                prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+                                                sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+                                                dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+                                                s = '',
+                                                toFixedFix = function(n, prec) {
+                                                  var k = Math.pow(10, prec);
+                                                  return '' + Math.round(n * k) / k;
+                                                };
+                                              // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+                                              s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
+                                              if (s[0].length > 3) {
+                                                s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+                                              }
+                                              if ((s[1] || '').length < prec) {
+                                                s[1] = s[1] || '';
+                                                s[1] += new Array(prec - s[1].length + 1).join('0');
+                                              }
+                                              return s.join(dec);
+                                            }
+
+                                            // Bar Chart Example
+                                            var ctx = document.getElementById("myBarChart");
+                                            var myBarChart = new Chart(ctx, {
+                                              type: 'bar',
+                                              data: {
+                                                labels: [],
+                                                datasets: [{
+                                                  label: "Revenue",
+                                                  backgroundColor: "#4e73df",
+                                                  maxBarThickness: 25,
+                                                  //hoverBackgroundColor: "#2e59d9",
+                                                  borderColor: "#4e73df",
+                                                  data: [],
+                                                }],
+                                              },
+                                              options: {
+                                                    maintainAspectRatio:false,
+                                                    responsive: true,
+                                                    legend: {
+                                                        position: 'bottom',
+                                                        display: true,
+
+                                                    },
+                                                    hover: {
+                                                      animationDuration: 0
+                                                    },
+                                                     animation: {
+                                                        duration: 1,
+                                                      onComplete: function() {
+                                                        var chartInstance = this.chart,
+                                                          ctx = chartInstance.ctx;
+
+                                                        ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+                                                        ctx.textAlign = 'center';
+                                                        ctx.textBaseline = 'bottom';
+
+                                                        this.data.datasets.forEach(function(dataset, i) {
+                                                          var meta = chartInstance.controller.getDatasetMeta(i);
+                                                          meta.data.forEach(function(bar, index) {
+                                                            var data = "Rs."+dataset.data[index];
+                                                            ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                                                          });
+                                                        });
+                                                      }
+                                                    },
+                                                scales: {
+                                                  xAxes: [{
+                                                    time: {
+                                                      unit: 'month'
+                                                    },
+                                                    gridLines: {
+                                                      display: true,
+                                                      drawBorder: true
+                                                    },
+                                                    ticks: {
+                                                      maxTicksLimit: 6
+                                                    },
+                                                    
+                                                  }],
+                                                  yAxes: [{
+                                                    ticks: {
+                                                      min: 0,
+                                                      max: 10000,
+                                                      maxTicksLimit: 10,
+                                                      padding: 10,
+                                                      // Include a dollar sign in the ticks
+                                                      callback: function(value, index, values) {
+                                                        return 'Rs' + number_format(value);
+                                                      }
+                                                    },
+                                                    gridLines: {
+                                                      color: "rgb(234, 236, 244)",
+                                                      zeroLineColor: "rgb(234, 236, 244)",
+                                                      drawBorder: false,
+                                                      borderDash: [2],
+                                                      zeroLineBorderDash: [2]
+                                                    }
+                                                  }],
+                                                },
+                                                legend: {
+                                                  display: false
+                                                },
+
+                                                tooltips: {
+                                                  titleMarginBottom: 5,
+                                                  titleFontColor: '#6e707e',
+                                                  titleFontSize: 14,
+                                                  backgroundColor: "rgb(255,255,255)",
+                                                  bodyFontColor: "#858796",
+                                                  borderColor: '#dddfeb',
+                                                  borderWidth: 1,
+                                                  xPadding: 8,
+                                                  yPadding: 8,
+                                                  displayColors: true,
+                                                  caretPadding: 5,
+                                                  callbacks: {
+                                                    label: function(tooltipItem, chart) {
+                                                      var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
+                                                      return datasetLabel + ': Rs' + number_format(tooltipItem.yLabel);
+                                                    }
+                                                  }
+                                                },
+                                              }
+                                            });
+                                
+                                            var x=barlabelarray;
+                                            for(var i=0;i<x.length;i++)
+                                            {
+                                              myBarChart.data.labels.push(x[i]);
+                                            }
+
+                                            var y=bardataarray;
+                                            myBarChart.data.datasets.forEach((dataset) => {
+                                              for(var i=0;i<y.length;i++)
+                                            {
+                                              dataset.data.push(y[i]);
+                                            }
+                                             
+                                            });
+                                            myBarChart.update();
+                                            //console.log(myBarChart);
+                                                                                }
+                                    function goodata(){
+                                      let refe=firebase.database().ref('Orders');
+                                                refe.on('value',godata)
+                                                function godata(data){
+                                          let info = data.val();
+                                          //console.log(info)
+                                          let keys=Object.keys(info);
+                                          //console.log(keys)
+                                          for(var i=0;i<keys.length;i++){
+                                            //console.log(keys[i]);
+                                            retrive(keys[i]);
+                                          }
+                                          //console.log(keys.length);
+                                          //counters=keys.length;
+                                    }
+                              
+                            }
+        window.addEventListener('load',goodata);
+        window.addEventListener('load',get);
+        window.addEventListener('load',activecountandpendingcount);
+    function preventBack()
+    {
+        console.log(sessionStorage.getItem("user"));
+
+    
+    if(sessionStorage.getItem("user")=="null" || sessionStorage.getItem("user")==null)
+    {
+        
+        window.open('index.html','_self');
+
+    }
+}
+window.addEventListener('load',preventBack);
+function clear()
+{
+    sessionStorage.setItem("user")=null;
+    window.open('index.html','_self');
+}
+
+
+    
+    
+
+</script>
+</body>
+
+</html>

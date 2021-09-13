@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/star-delivery-38f25.appspot.com/o/logo%2F20210620_101844.jpg?alt=media&token=18c05ec0-c3c3-477e-baa3-535cc1b0cbdb" type="image/jpg"/>
+    <title>Print Bill</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+
+    <!-- Custom styles for this template -->
+    <link href="css/av-admin.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+</head>
+<style>
+    #myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid black;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+#myTable tr:nth-child(even){background-color: #f2f2f2;}
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+#myTable tr:hover {background-color: #ddd;}
+#myTable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #1fd1f9;
+background-image: linear-gradient(315deg, #1fd1f9 0%, #b621fe 74%);
+  color: white;
+  }
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.html">
+                <div class="sidebar-brand-icon ">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/star-delivery-38f25.appspot.com/o/logo%2F20210620_101844.jpg?alt=media&token=18c05ec0-c3c3-477e-baa3-535cc1b0cbdb" style="width: 60px;" class="img-profile rounded-circle"></img>
+                </div>
+                <div class="sidebar-brand-text mx-3">Daalchini</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="dashboard.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+           
+
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="menu_table.html">
+                <i class="fas fa-fw fa-utensils"></i>
+                    <span>Restaurant Menu</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+             <!-- Nav Item -  Drivers -->
+            <li class="nav-item active">
+                <a class="nav-link" href="drivers_table.html">
+                <i class="fas fa-fw fa-user"></i>
+                    <span>Drivers</span>
+                </a>
+                
+            </li>
+
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cart-arrow-down"></i>
+                    <span>Orders</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Orders</h6>
+                        <a class="collapse-item" href="accept_orders.html">Accept/Decline Orders</a>
+                        <a class="collapse-item" href="order_items(driver)part2.html">Assigning Orders</a>
+                        <a class="collapse-item" href="active_orders(table).html">Active Orders</a>
+                        <a class="collapse-item" href="delivery_orders(table).html">Delivered Orders</a>
+                    </div>
+                </div>
+            </li>
+            <hr class="sidebar-divider my-0">
+             <!-- Nav Item -  Report Tables -->
+            <li class="nav-item active">
+                <a class="nav-link" href="charts.html">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Reports</span></a>
+            </li>
+
+            <hr class="sidebar-divider my-0">
+            
+
+            <!-- Nav Item -  Report Tables -->
+            <li class="nav-item active">
+                <a class="nav-link" href="users.html">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Users</span></a>
+            </li>
+            
+            
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="account_statements.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Account statements</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="print_menu.html">
+                    
+                    <i class="fas fa-fw fa-print"></i>
+                    <span>Print Bill</span></a>
+            </li>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="track_orders.html">
+                    
+                    <i class="fas fa-fw fa-thumbtack"></i>
+                    <span>Track orders</span></a>
+            </li>
+            
+            <hr class="sidebar-divider my-0">
+            <!-- Nav Item -   -->
+            <li class="nav-item active">
+                <a class="nav-link" href="cards.html">
+                    <i class="fas fa-fw fa-gift"></i>
+                    <span>Offer walls</span></a>
+            </li>
+          
+            
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+            
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+
+                        
+                       
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                
+                <!-- End of Topbar -->
+                
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Print Bill</h1>
+                    <p class="mb-4"></p>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Order details</h6>
+                        </div>
+                        <div class="card-body">
+                            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+                        <h1 id='para'></h1>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                            <table id="myTable">
+                              <thead>
+                                <tr>
+                                    <th>S-No</th>
+                                    <th>Order ID</th>
+                                     <th>Customer Name</th>
+                                     <th>Phone Number</th>
+                                     <th>Order Time</th>     
+                                     <th>Order status</th>                               
+                                  </tr>
+                             </thead>
+                              <tbody id='tbody1'>
+                              </tbody>
+                            </table>
+                           
+                        </div>
+                        
+                    </div>
+
+                </div>
+               
+                <div class="container">
+                    <h4>Enter the Order ID below</h4>
+                    <div class="form-group">
+                    <input type="text" 
+                        id="order" placeholder="Order ID" >
+                </div>
+                <button class="btn btn-primary btn-user" id='addbtn' onclick="set()">
+                    Print
+                  </button>
+            </div>
+            <br>
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Daalchini</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/av-admin.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/charts/datatables-demo.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+  <script type="text/javascript">
+   
+        function myFunction() {
+                              var input, filter, table, tr, td, i, txtValue;
+                              input = document.getElementById("myInput");
+                              filter = input.value.toUpperCase();
+                              table = document.getElementById("myTable");
+                              tr = table.getElementsByTagName("tr");
+                              for (i = 0; i < tr.length; i++) {
+                                td = tr[i].getElementsByTagName("td")[1];
+                                if (td) {
+                                  txtValue = td.textContent || td.innerText;
+                                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                    tr[i].style.display = "";
+                                  } else {
+                                    tr[i].style.display = "none";
+                                  }
+                                }       
+                              }
+                            }
+                            </script>
+                            
+    
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+  //here i have used tutorial project
+      apiKey: "AIzaSyBGQsw6dLVCQ_utGY7SHLBfg7EckVz9W0o",
+    authDomain: "star-delivery-38f25.firebaseapp.com",
+    databaseURL: "https://star-delivery-38f25-default-rtdb.firebaseio.com",
+    projectId: "star-delivery-38f25",
+    storageBucket: "star-delivery-38f25.appspot.com",
+    messagingSenderId: "351160619379",
+    appId: "1:351160619379:web:9de85e6098b55a5ace7506"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+// Set database variable
+//sessionStorage.setItem('value',0);
+var database = firebase.database()
+  var s=0;
+        function add(a,b,c,d,e){
+
+        
+            var tbody=document.getElementById('tbody1');
+            var trow=document.createElement('tr');
+            var td1=document.createElement('td');
+            var td2=document.createElement('td');
+            var td3=document.createElement('td');
+          var td4=document.createElement('td');
+          var td5=document.createElement('td');
+            var td6=document.createElement('td');
+           // var td7=document.createElement('td');
+           // var td8=document.createElement('td');
+           s=s+1;
+            td1.innerHTML=(s);
+            td2.innerHTML=a;
+            td3.innerHTML=b;
+            //td4.innerHTML=c;
+            td4.innerHTML=c;
+           td5.innerHTML=d;
+            td6.innerHTML=e;
+           // td7.innerHTML=f;
+            //td8.innerHTML='<button onclick="assign()">Assign Order</button>'
+            tbody.appendChild(trow)
+            trow.appendChild(td1); 
+            trow.appendChild(td2); 
+            trow.appendChild(td3); 
+            trow.appendChild(td4);
+            trow.appendChild(td5); 
+          //  trow.appendChild(td5); 
+           trow.appendChild(td6);
+           // trow.appendChild(td7); 
+           // trow.appendChild(td8);  
+          //  trow.appendChild(td5);
+            //sessionStorage.setItem('value',s);
+            
+        }
+
+        function get(){
+            var today = new Date();
+            var dd = today.getDate();
+
+            var mm = today.getMonth()+1; 
+            var yyyy = today.getFullYear();
+            if(dd<10) 
+            {
+                dd='0'+dd;
+            } 
+
+            if(mm<10) 
+            {
+                mm='0'+mm;
+            } 
+            today = dd+'-'+mm+'-'+yyyy;
+            firebase.database().ref('Orders/'+today+'/').once('value',function(snapshot){
+                snapshot.forEach(
+                    function(ChildSnapshot){
+                        let a=ChildSnapshot.val().order_id;
+                        let b=ChildSnapshot.val().user_name;
+                        let c=ChildSnapshot.val().phone_number;
+                        let d=ChildSnapshot.val().time;
+                        let e=ChildSnapshot.val().status;
+                        
+                        add(a,b,c,d,e);
+                        //console.log(d.length);
+
+                    }
+                    );
+
+            });
+        }
+        /////////////////own idea///////////
+        var counters=0;
+        function loading(){
+            var today = new Date();
+            var dd = today.getDate();
+
+            var mm = today.getMonth()+1; 
+            var yyyy = today.getFullYear();
+            if(dd<10) 
+            {
+                dd='0'+dd;
+            } 
+
+            if(mm<10) 
+            {
+                mm='0'+mm;
+            } 
+            today = dd+'-'+mm+'-'+yyyy;
+        let refe=firebase.database().ref('Orders/'+today+'/');
+        //console.log(refe);
+        refe.on('value',godata)
+        //console.log(godata)
+        function godata(data){
+            let info = data.val();
+            if(info!=null){///this im checking null ,if db is there it wont be null,else it will be null
+           // console.log(info)
+            let keys=Object.keys(info);
+            //console.log(keys)
+            //console.log(keys[0].payment_method);
+            //sessionStorage.setItem('orderid',keys[0]);
+           // console.log(keys.length);
+            counters=keys.length;//this says how many records/childnodes are there in that particular firebase db 
+            console.log(counters);
+            document.getElementById('para').innerHTML='The Number Of Orders = '+counters;
+            get();
+        }
+            else{
+                alert('novalue');
+                console.log(counters);
+                document.getElementById('para').innerHTML='The Number Of Orders = '+counters;
+            }
+        }
+        ////////////////////////////own idea ends here/////////////////////////////
+        //window.onload(get());
+    }
+       
+function set()
+{ 
+var id=document.getElementById('order').value;
+if(id.length!=0  && id.length==8){
+sessionStorage.setItem('orderid',id);
+alert('Print Bill ID:'+id);
+window.open('bill_print.html','_self');
+}
+else{
+    alert('Enter  valid ID to Print Menu');
+}
+}
+window.addEventListener('load',loading);
+
+
+</script>
+
+</body>
+
+</html>

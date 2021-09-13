@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/star-delivery-38f25.appspot.com/o/logo%2F20210620_101844.jpg?alt=media&token=18c05ec0-c3c3-477e-baa3-535cc1b0cbdb" type="image/jpg"/>
+    <title>Driver registration</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/av-admin.min.css" rel="stylesheet">
+<style>
+    .modal-confirm {    
+  color: #636363;
+  width: 325px;
+  font-size: 14px;
+}
+.modal-confirm .modal-content {
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+}
+.modal-confirm .modal-header {
+  border-bottom: none;   
+  position: relative;
+}
+.modal-confirm h4 {
+  text-align: center;
+  font-size: 26px;
+  margin: 30px 0 -15px;
+}
+.modal-confirm .form-control, .modal-confirm .btn {
+  min-height: 40px;
+  border-radius: 3px; 
+}
+.modal-confirm .close {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+} 
+.modal-confirm .modal-footer {
+  border: none;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 13px;
+} 
+.modal-confirm .icon-box {
+  color: #fff;    
+  position: absolute;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: -70px;
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  z-index: 9;
+  background: #82ce34;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.modal-confirm .icon-box i {
+  font-size: 58px;
+  position: relative;
+  top: 3px;
+}
+.modal-confirm.modal-dialog {
+  margin-top: 80px;
+}
+.modal-confirm .btn {
+  color: #fff;
+  border-radius: 4px;
+  background: #82ce34;
+  text-decoration: none;
+  transition: all 0.4s;
+  line-height: normal;
+  border: none;
+}
+.modal-confirm .btn:hover, .modal-confirm .btn:focus {
+  background: #6fb32b;
+  outline: none;
+}
+.trigger-btn {
+  display: inline-block;
+  margin: 100px auto;
+}
+</style>
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container" >
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image3"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">DRIVER REGISTRATION</h1>
+                                    </div>
+                                    <form class="user"onsubmit="return false">
+                                        <div class="form-group">
+                                          <h5>Work Hours</h5>
+                                          <h4 id="error" style= "color:red"> </h4>
+                                            <input type="radio" name="work" value='fulltime'>&nbsp Full-time &nbsp
+                                            <input type="radio" name="work" value='partime'>&nbsp Part-time
+                                        </div>
+                                        <div class="form-group">
+                                          <h5>Work Shift</h5>
+                                          <h4 id="error" style= "color:red"> </h4>
+                                            <input type="radio" name="shift" value='morning'>&nbsp Morning &nbsp
+                                            <input type="radio" name="shift" value='night'>&nbsp Night
+                                            <input type="radio" name="shift" value='fullshift'>&nbsp Full Shift
+                                        </div>
+                                        <div class="form-group">
+                                          <input type="text" class="form-control form-control-user"
+                                                id="c" placeholder="Driver Name" required="required">
+                                        </div>
+                                        <div class="form-group">
+                                          <input type="password" class="form-control form-control-user"
+                                                id="k" placeholder="Driver Password" required="required">
+
+                                        </div>
+                                        <div class="form-group"> <input type="checkbox" onclick="myFunction1()">Show Password</div>
+                                       
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="d" placeholder="Driver Email" required="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="e" placeholder="Driver Phone" required="required">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="f" placeholder="Driver Address" required="required">
+                                        </div>
+                                        <div class="form-group">
+                                         
+                                            <label>Upload Proof Document</label>
+                                            <input type="file" id='g'>
+                                            <label>Uplaod Profile Picture</label>
+                                            <input type="file" id='h'>
+                                        </div>
+
+                                        <a href="#myModal1"  data-toggle="modal"><button id ='p1' class="btn btn-primary btn-user btn-block" onclick='validate()'>confirm</button></a>
+                                     <p style="visibility: hidden;" id='p2'> <a href="#myModal2"  data-toggle="modal"><button class="btn btn-primary btn-user btn-block" onclick='uploadimg(),add()'>
+                                           Register
+                                        </button></a></p>
+                                        <p style="visibility: hidden;" id='p3'> <a href="#myModal"  data-toggle="modal"></a><button class="btn btn-success btn-user btn-block" onclick="showbutton1(),newwindow()">
+                                           Submit
+                                        </button></a></p>
+                                       
+                                        <hr>
+                                       
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a href="drivers_table.html" class="btn btn-primary btn-user btn-block">
+                                            Go back
+                                         </a>
+                                         <hr>
+
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+<div class="text-center">
+  <!-- Button HTML (to Trigger Modal) -->
+  
+</div>
+<!--modal for confirm-->
+<div id="myModal1" class="modal fade">
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="icon-box">
+          <i class="material-icons">&#xE876;</i>
+        </div>        
+        <h4 class="modal-title w-100">Awesome!</h4> 
+      </div>
+      <div class="modal-body">
+        <p class="text-center">Sure</p>
+      </div>
+      <div class="modal-footer">
+              <!--<a class="btn btn-success btn-block" href="add_menu(with_image_adding)starappdevlivery (1).html">OK</a>-->
+              <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div> 
+ 
+<!--end-->
+<!--modal for register-->
+<div id="myModal2" class="modal fade">
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="icon-box">
+          <i class="material-icons">&#xE876;</i>
+        </div>        
+        <h4 class="modal-title w-100">Awesome!</h4> 
+      </div>
+      <div class="modal-body">
+        <p class="text-center">Sure</p>
+      </div>
+      <div class="modal-footer">
+              <!--<a class="btn btn-success btn-block" href="add_menu(with_image_adding)starappdevlivery (1).html">OK</a>-->
+              <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div> 
+ 
+<!--end-->
+<!--modal for submit -->
+<div id="myModal" class="modal fade">
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="icon-box">
+          <i class="material-icons">&#xE876;</i>
+        </div>        
+        <h4 class="modal-title w-100">Awesome!</h4> 
+      </div>
+      <div class="modal-body">
+        <p class="text-center">Your details  has been successfully registered .</p>
+      </div>
+      <div class="modal-footer">
+              <!--<a class="btn btn-success btn-block" href="add_menu(with_image_adding)starappdevlivery (1).html">OK</a>-->
+              <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div> 
+<!--end-->
+ 
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>
+  <script type="text/javascript">
+    var ImgName,ImgUrl='null',ImgUrl1='null';
+         var files=[];
+         var reader=new FileReader();
+var firebaseConfig = {
+  //here i have use develope project
+  
+   apiKey: "AIzaSyBGQsw6dLVCQ_utGY7SHLBfg7EckVz9W0o",
+    authDomain: "star-delivery-38f25.firebaseapp.com",
+    databaseURL: "https://star-delivery-38f25-default-rtdb.firebaseio.com",
+    projectId: "star-delivery-38f25",
+    storageBucket: "star-delivery-38f25.appspot.com",
+    messagingSenderId: "351160619379",
+    appId: "1:351160619379:web:9de85e6098b55a5ace7506"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+// Set database variable
+var database = firebase.database()
+function validate(){
+  var name = document.getElementById('c').value
+  var email = document.getElementById('d').value
+  var phone = document.getElementById('e').value
+  var passwd = document.getElementById('k').value
+   var address = document.getElementById('f').value
+   var selectwork = document.querySelector('input[name="work"]:checked');
+var selectshift = document.querySelector('input[name="shift"]:checked'); 
+//var imgfeild=document.getElementById('m').style.visibility;
+if(name==null || email==null || phone==null || address==null || selectshift==null||selectwork==null ||passwd==null){
+  alert('upload proof & please enter all details');
+  document.getElementById("error").innerHTML= "You have not selected";
+}
+else{    
+  sessionStorage.setItem('driverphone',phone);
+   sessionStorage.setItem('drivername',name);
+   var fileInput =document.getElementById('g');
+			var filePath = fileInput.value;
+			var fileInput1 =document.getElementById('h');
+			var filePath1 = fileInput1.value;
+			var allowedExtensions =
+					/(\.jpg|\.jpeg|\.png|\.pdf)$/i;
+			if (!allowedExtensions.exec(filePath) && !allowedExtensions.exec(filePath1)) {
+				ImgUrl='null';
+				ImgUrl1='null';
+				sessionStorage.setItem('proofurl',ImgUrl);
+				sessionStorage.setItem('profileurl',ImgUrl1);
+				console.log(ImgUrl);
+			  }
+		else
+		  {
+        //alert("sure?");
+        phone=document.getElementById('e').value;
+        var uploadTask=firebase.storage().ref('Drivers/'+phone+'/proof/'+phone).put(document.getElementById('g').files[0]);
+        var uploadTask1=firebase.storage().ref('Drivers/'+phone+'/profilepic/'+phone).put(document.getElementById('h').files[0]);
+         uploadTask.on('stage_changed',function(snapshot){
+        },
+       function(error)
+        {
+               alert('error in saving the file');
+        },
+        function(){
+                  uploadTask.snapshot.ref.getDownloadURL().then(function(url){
+                ImgUrl=url;
+                sessionStorage.setItem('proofurl',ImgUrl);
+                
+               console.log(ImgUrl);
+              });
+          
+               uploadTask1.snapshot.ref.getDownloadURL().then(function(url){
+                ImgUrl1=url;
+                sessionStorage.setItem('profileurl',ImgUrl1);
+               console.log(ImgUrl1);
+              // add(ImgUrl,ImgUrl1);
+             
+               //alert("Image Uploading , Please Wait..");
+          //alert("Image Uploading , Please Wait..");
+          //alert('Loading , Please Wait');
+               });
+
+        }
+    );
+
+ 
+}
+    //alert("sure?");
+  document.getElementById('p1').style.visibility='hidden';
+  document.getElementById('p2').style.visibility='visible';
+  
+}
+
+}
+function add(i,i1){
+          //geolocation functioning happens here
+  //var ImgUrl=i;//sessionStorage.getItem('proofimgurl');
+ //var ImgUrl1=i1;//sessionStorage.getItem('profileimgurl');
+  var address = document.getElementById('f').value;
+  var name = document.getElementById('c').value
+  var email = document.getElementById('d').value
+  var phone = document.getElementById('e').value
+  var passwd = document.getElementById('k').value
+var selectwork = document.querySelector('input[name="work"]:checked');
+var selectshift = document.querySelector('input[name="shift"]:checked');            
+              
+            if(selectwork!= null && selectshift!=null){
+              var work=selectwork.value;
+              var shift=selectshift.value;
+          database.ref('Driver/'+phone+'/').set({
+            name:name,
+            password:passwd,
+            email:email,
+            phone:phone,
+            work:work,
+            shift:shift,
+            address:address
+           // proof:ImgUrl,
+           // profilepic:ImgUrl1
+
+          });
+
+          
+          //alert('Added Successfully');
+
+
+           //showbutton();
+          //document.getElementById('p3').style.visibility='visible';
+          //document.getElementById('p2').style.visibility='hidden';
+         // document.getElementById('p4').style.visibility='visible';
+         // window.open('thankyoudriver.html','_self');
+       }
+
+        }
+function uploadimg(){
+       
+          //document.getElementById('p3').style.visibility='visible';
+         
+          showbutton();
+          document.getElementById('p2').style.visibility='hidden';
+         
+    
+}
+
+
+function showbutton1(){
+  //document.getElementById('p4').style.visibility='visible'; 
+   document.getElementById('p3').style.visibility='hidden'; 
+}
+function newwindow(){
+  window.open('driversuccess.html','_self');
+  //location.reload();
+}
+function showbutton() {
+  show()
+
+}
+function show(){
+    //alert("uploading in process...");
+    document.getElementById("p3").style.visibility = "visible";
+}
+function myFunction1() {
+  var x = document.getElementById("k");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+  </script>
+
+</body>
+
+</html>
