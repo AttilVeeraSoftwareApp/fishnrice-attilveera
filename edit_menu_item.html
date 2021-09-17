@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="https://firebasestorage.googleapis.com/v0/b/star-delivery-38f25.appspot.com/o/logo%2F20210620_101844.jpg?alt=media&token=18c05ec0-c3c3-477e-baa3-535cc1b0cbdb" type="image/jpg"/>
+    <link rel="icon" href="" type="image/jpg"/>
     <title>Edit menu item</title>
 
     <!-- Custom fonts for this template-->
@@ -64,7 +64,7 @@
                                         <div class="form-group">
                                           <h4>Food Name</h4>
                                             <input type="text" class="form-control form-control-user"
-                                                id="b" placeholder="Food Name">
+                                                id="b" placeholder="Food Name" readonly="readonly">
                                         </div>
                                         <div class="form-group">
                                           <h4>Food Price</h4>
@@ -73,24 +73,24 @@
                                         </div>
                                          <div class="form-group">
                                             <h4 id="error1" style= "color:red"> </h4>
-                                            <h4>Cuisine</h4>
+                                            <h4>Menu</h4>
                                             <input type="text" class="form-control form-control-user"
                                                 id="cusine" placeholder="Food Cuisine" readonly="readonly">
   
                                         </div>
-                                    <div class="form-group">
+                                    <!--<div class="form-group">
                                              <button class="btn btn-primary btn-user btn-block" onclick='search()'>Search Image</button>
                                              <p id='para'style='visibility: hidden;color:red;'>Fetching image, please wait..</p>
                                             <label>Search Food Image and Add Item</label>
                                             <img id="myimg" width="10px" height="10px" src="https://image.freepik.com/free-vector/salmon-sushi-with-chopstick-plate-cartoon-icon-illustration-japanese-food-icon-concept-isolated-flat-cartoon-style_138676-1727.jpg" style="visibility: hidden;"><label id="UpProgress"></label>
-                                        </div>  
+                                        </div>-->  
 
-                                        <button onclick='offerpage()' id='offrbtn' style="visibility: hidden;">Add Offers</button>
+                                        <button onclick='offerpage()' id='offrbtn' >Add Offers</button>
                                     </form>
                                     
                                     <hr>
                                     <div class="text-center">
-                                        <a href="#myModal"  data-toggle="modal"><button class="btn btn-primary btn-user "onclick='save()' style="visibility: hidden;"id='addbtn'>
+                                        <a href="#myModal"  data-toggle="modal"><button class="btn btn-primary btn-user "onclick='save()' style="visibility: visible;"id='addbtn'>
                                            Add Item +
                                          </button></a>
                                          <hr>
@@ -145,13 +145,13 @@ var url1;
 var firebaseConfig = {
   //here i have use develope project
   
-  apiKey: "AIzaSyBGQsw6dLVCQ_utGY7SHLBfg7EckVz9W0o",
-    authDomain: "star-delivery-38f25.firebaseapp.com",
-    databaseURL: "https://star-delivery-38f25-default-rtdb.firebaseio.com",
-    projectId: "star-delivery-38f25",
-    storageBucket: "star-delivery-38f25.appspot.com",
-    messagingSenderId: "351160619379",
-    appId: "1:351160619379:web:9de85e6098b55a5ace7506"
+  apiKey: "AIzaSyAPRsmEUbRuLj6_vWlW4aKpHQsD1UiKIqE",
+  authDomain: "fishnrice-bc3a7.firebaseapp.com",
+  databaseURL: "https://fishnrice-bc3a7-default-rtdb.firebaseio.com",
+  projectId: "fishnrice-bc3a7",
+  storageBucket: "fishnrice-bc3a7.appspot.com",
+  messagingSenderId: "227580860494",
+  appId: "1:227580860494:web:5e6438c19ddf23276f8b1f"
   };
   firebase.initializeApp(firebaseConfig);
 
@@ -241,22 +241,22 @@ function save(){
                 //var type = selecttype.value;
                 //var cusine= selectcusine.value;
                 //var period= selectperiod.value;
-                var url = sessionStorage.getItem("url");
+                //var url = sessionStorage.getItem("url");
                 var food = document.getElementById('b').value;
                 var rate = document.getElementById('c').value;
                 var fromtime=document.getElementById('from').value;
                 var totime=document.getElementById('to').value;
-              var url='Restaurant/nonveg/13%12435,80%07475/menu/'+type+'/'+cusine+'/'+selectcatg+'/';
+              var url='Menu'+'/'+cusine+'/'+selectcatg+'/';
                 console.log(url);
-                 database.ref(url+food).set({
+                 database.ref(url+food).update({
                       foodname:food,
                       foodrate:rate,
-                      availability:"yes",
+                      //availability:"yes",
                       starttime:fromtime,
-                      endtime:totime,
-                      foodimg: ImgUrl,
-                      cuisine:cusine,
-                      category:selectcatg
+                      endtime:totime
+                      //foodimg: ImgUrl,
+                      //cuisine:cusine,
+                      //category:selectcatg
                     })
                   //alert('Saved,Enter New one');
                   //location.reload();
