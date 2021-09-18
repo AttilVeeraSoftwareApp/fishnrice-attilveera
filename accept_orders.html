@@ -672,7 +672,7 @@ var database = firebase.database()
             td5.innerHTML=d;
             td6.innerHTML=e;
             td7.innerHTML=f;
-            if(g=='Pending')
+            if(g!='Pending' && g=="Delivered")
             {
               td8.innerHTML='<button style="color:green;">Accept Order</button>'
             }
@@ -741,7 +741,7 @@ function accept(){
                            database.ref('Orders/'+today+'/'+oid+'/').update({
                             status:"Restaurant Accepted"
                           });
-                           firebase.database().ref('Pending Orders/'+today+'/'+oid).remove();
+                           firebase.database().ref('Orders/'+today+'/'+oid).remove();
                            alert('changes done');
                            location.reload();
 
@@ -889,12 +889,13 @@ function accept(){
           } 
           today = dd+'-'+mm+'-'+yyyy;
           console.log(today);
-        let refe=firebase.database().ref('Pending Orders/'+today+'/');
+        let refe=firebase.database().ref('Orders/'+today+'/');
         //console.log(refe);
         refe.on('value',godata)
         //console.log(godata)
         function godata(data){
             let info = data.val();
+            console.log(info);
             if(info!=null){///this im checking null ,if db is there it wont be null,else it will be null
             //console.log(info)
             let keys=Object.keys(info);
@@ -908,7 +909,7 @@ function accept(){
             //get();
              for(var i=0;i<keys.length;i++)
              {
-                 let refe=firebase.database().ref('Pending Orders/'+today+'/'+keys[i]+'/')
+                 let refe=firebase.database().ref('Orders/'+today+'/'+keys[i]+'/')
               refe.on('value',godata1)
               function godata1(data)
               {
