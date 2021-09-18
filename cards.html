@@ -341,14 +341,14 @@
                             <tr>
                                                                   
                                 <th>S-No</th>
-                                <th>Coupon Name<br><button style="font-size: small"; onclick="sort2Table1()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button style="font-size: small"; onclick="sort2Table11()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
+                                
                                   <th>Restaurant Name<br><button style="font-size: small"; onclick="sort2Table2()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button style="font-size: small"; onclick="sort2Table21()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
                                  <th>Food Name<br><button style="font-size: small"; onclick="sort2Table3()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button style="font-size: small"; onclick="sort2Table31()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
                                  <th>Type<br><button style="font-size: small"; onclick="sort2Table4()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button style="font-size: small"; onclick="sort2Table41()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
                                <th>Actual price<br><button style="font-size: small"; onclick="sort2Table5()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button style="font-size: small"; onclick="sort2Table51()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
                                <th>Offer price<br><button style="font-size: small"; onclick="sort2Table6()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button style="font-size: small"; onclick="sort2Table61()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
-                               <th>Cuisine<br><button style="font-size: small"; onclick="sort2Table7()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button style="font-size: small"; onclick="sort2Table71()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
-                               <th>Category</th> 
+                            <!--<th>Cuisine<br><button style="font-size: small"; onclick="sort2Table7()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button style="font-size: small"; onclick="sort2Table71()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
+                               <th>Category</th> -->
                                <th>Validity<br><button style="font-size: small"; onclick="sort2Table8()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button style="font-size: small"; onclick="sortTable81()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
                                <th>Time<br><button style="font-size: small"; onclick="sort2Table9()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button style="font-size: small"; onclick="sortTable91()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th> 
                                <th>Edit Offer</th>
@@ -1351,131 +1351,40 @@ function myFunction1() {
                             
                             var firebaseConfig = {
                               //here i have used tutorial project
-                                apiKey: "AIzaSyBGQsw6dLVCQ_utGY7SHLBfg7EckVz9W0o",
-                                authDomain: "star-delivery-38f25.firebaseapp.com",
-                                databaseURL: "https://star-delivery-38f25-default-rtdb.firebaseio.com",
-                                projectId: "star-delivery-38f25",
-                                storageBucket: "star-delivery-38f25.appspot.com",
-                                messagingSenderId: "351160619379",
-                                appId: "1:351160619379:web:9de85e6098b55a5ace7506"
+                              apiKey: "AIzaSyDJQFRw3KYvAyFaRLb-Z-ZS9QlXkAQMZiQ",
+  authDomain: "fishnrice-bc3a7.firebaseapp.com",
+  databaseURL: "https://fishnrice-bc3a7-default-rtdb.firebaseio.com",
+  projectId: "fishnrice-bc3a7",
+  storageBucket: "fishnrice-bc3a7.appspot.com",
+  messagingSenderId: "227580860494",
+  appId: "1:227580860494:web:5e6438c19ddf23276f8b1f"
                               };
                               firebase.initializeApp(firebaseConfig);
                             
                             // Set database variable
                             var database = firebase.database()
-  ////////////////////////////////////////offer table starts//////////////////////////////////////////////////////
-                            var flag=0;
-                                    function addtable(a,b,c,d){
-                                        
-                                        var tbody=document.getElementById('tbody');
-                                        var trow=document.createElement('tr');
-                                        var td1=document.createElement('td');
-                                        var td2=document.createElement('td');
-                                        var td3=document.createElement('td');
-                                        var td4=document.createElement('td');
-                                        var td5=document.createElement('td');
-                                       var td6=document.createElement('td');
-                                        var td7=document.createElement('td');
-                                        flag=flag+1;
-                                        td1.innerHTML=(flag);
-                                        td2.innerHTML=a;
-                                        td3.innerHTML=b;
-                                        td4.innerHTML=c;
-                                        td5.innerHTML=d;
-                                    td6.innerHTML='<button onclick="view()"><i class="fas fa-edit"></i></button>'
-                                  td7.innerHTML='<button onclick="remove()"><i class="fas fa-trash"></i></button>'
-                                        tbody.appendChild(trow)
-                                        trow.appendChild(td1); 
-                                        trow.appendChild(td2); 
-                                        trow.appendChild(td3); 
-                                        trow.appendChild(td4); 
-                                        trow.appendChild(td5);
-                                       trow.appendChild(td6);
-                                       trow.appendChild(td7);
-                                    }
-                            
-                                  function view(){
-                                     var table = document.getElementById('myTable');
-                    var cells = table.getElementsByTagName('td');
+  
+/////////////////////////restaurant offer table functionality starts here////////////////////////////////////
 
-                    for (var i = 0; i < cells.length; i++) {
-                        // Take each cell
-                        var cell = cells[i];
-                        // do something on onclick event for cell
-                        cell.onclick = function () {
-                            // Get the row id where the cell exists
-                            var rowId = this.parentNode.rowIndex;
-
-                            var rowsNotSelected = table.getElementsByTagName('tr');
-                            for (var row = 0; row < rowsNotSelected.length; row++) {
-                                rowsNotSelected[row].style.backgroundColor = "";
-                                rowsNotSelected[row].classList.remove('selected');
-                            }
-                            var rowSelected = table.getElementsByTagName('tr')[rowId];
-                            rowSelected.style.backgroundColor = "yellow";
-                            rowSelected.className += " selected";
-                           // msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
-                            var cn=rowSelected.cells[1].innerHTML;
-                            var rn= rowSelected.cells[2].innerHTML;
-                            var cv=rowSelected.cells[3].innerHTML;
-                            var ca=rowSelected.cells[4].innerHTML;
-                           var data=[];
-                           data.push(cn);
-                           data.push(rn);
-                           data.push(cv);
-                           data.push(ca);
-                           
-                           sessionStorage.setItem('couponvalues',data);
-                           window.open('edit_normalcoupon.html','_self');
-                        }
-                    }
-
-                                  }
-                                  function remove(){
-
-                              //alert('wait have to write yet');
-                                      var table = document.getElementById('myTable');
-                    var cells = table.getElementsByTagName('td');
-
-                    for (var i = 0; i < cells.length; i++) {
-                        // Take each cell
-                        var cell = cells[i];
-                        // do something on onclick event for cell
-                        cell.onclick = function () {
-                            // Get the row id where the cell exists
-                            var rowId = this.parentNode.rowIndex;
-
-                            var rowsNotSelected = table.getElementsByTagName('tr');
-                            for (var row = 0; row < rowsNotSelected.length; row++) {
-                                rowsNotSelected[row].style.backgroundColor = "";
-                                rowsNotSelected[row].classList.remove('selected');
-                            }
-                            var rowSelected = table.getElementsByTagName('tr')[rowId];
-                            rowSelected.style.backgroundColor = "yellow";
-                            rowSelected.className += " selected";
-                           // msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
-                            var on=rowSelected.cells[1].innerHTML;
-
-                              firebase.database().ref('Offers/'+on).remove()
-                              //firebase.database().ref('Pending Drivers/'+dph).remove()
-
-                              alert('deleted')
-                              location.reload();
-                              //location.reload();
-                           
-                        }
-                    }
-
-                                  }
-                                    function retrive(){
+                                    var flage=0;
+                                    
+                                    function load(){
                                         firebase.database().ref('Offers/').once('value',function(snapshot){
                                             snapshot.forEach(
                                                 function(ChildSnapshot){
-                                                    let a=ChildSnapshot.val().coupon_name;
-                                                    let b=ChildSnapshot.val().Restaurantname;
-                                                    let c=ChildSnapshot.val().Discount;
-                                                    let d=ChildSnapshot.val().Accessibility;
-                                                    addtable(a,b,c,d);
+                                                    let a=ChildSnapshot.val().foodname;
+                                                    let b=ChildSnapshot.val().foodtype;
+                                                    let c=ChildSnapshot.val().foodprice;
+                                                    let d=ChildSnapshot.val().offerprice;
+                                                    let e=ChildSnapshot.val().date;
+                                                    let f=ChildSnapshot.val().time;
+                                                    let g="Fish N Rice";
+                                                    //let d=ChildSnapshot.child("Home_Location/address").val();
+                                                    //let e=ChildSnapshot.child("Work_Location/address").val();
+                                                   
+                                                    //add(a,b,c,d,e);
+                                                    //console.log(a,b,c,d,e);
+                                                    addtable1(a,b,c,d,e,f,g);
                                                     //console.log(d.length);
                             
                                                 }
@@ -1483,40 +1392,14 @@ function myFunction1() {
                             
                                         });
                                     }
-////////////////////offer tables functionality ends here///////////////////////////////////////////////////////////
-/////////////////////////restaurant offer table functionality starts here////////////////////////////////////
-
-                                    var flage=0;
-                                    function getvalue(a,b){
-                                      var foodname=b;
-                                      var type=a;
-                                      if(type=='pure veg'){
-                                        type='veg';
-                                      }
+                                    
+                                      
                               
-                                      console.log(foodname,type);
-                                      console.log("RestaurantOffers/"+type+'/'+foodname+'/');
-                                       var user_ref = database.ref("RestaurantOffers/"+type+'/'+foodname+'/')
-                                        user_ref.on('value', function(snapshot) {
-                                          var data = snapshot.val();
-                                                    let a=data.couponname;
-                                                    let b=data.restaurant;
-                                                    let c=data.foodname;
-                                                    let d=type;
-                                                    let e=data.actualprice;
-                                                    let f=data.offerprice;
-                                                    let g=data.date;
-                                                    let h=data.time;
-                                                    let i=data.cuisine;
-                                                    let j=data.category;
-                                                   // console.log(a,b,c,d,e,f,g,h,i,j);
-                                                    addtable1(a,b,c,d,e,f,g,h,i,j);
+                                      //console.log(foodname,type);
+                                      //console.log("Offers/"+type+'/'+foodname+'/');
 
-                                        })
-
-
-                                    }
-                                    function addtable1(a,b,c,d,e,f,g,h,i,j){
+                                    
+                                    function addtable1(a,b,c,d,e,f,g){
                                         //console.log(a,b,c,d,e,f,g,h,i);
                                         var tbody=document.getElementById('tbody1');
                                         var trow=document.createElement('tr');
@@ -1530,23 +1413,24 @@ function myFunction1() {
                                         var td8=document.createElement('td');
                                         var td9=document.createElement('td');
                                         var td10=document.createElement('td');
-                                        var td11=document.createElement('td');
-                                        var td12=document.createElement('td');
-                                        var td13=document.createElement('td');
+                                       // var td11=document.createElement('td');
+                                        //var td12=document.createElement('td');
+                                       // var td13=document.createElement('td');
                                         flage=flage+1;
                                         td1.innerHTML=(flage);
-                                        td2.innerHTML=a;
-                                        td3.innerHTML=b;
-                                        td4.innerHTML=c;
-                                        td5.innerHTML=d;
-                                        td6.innerHTML=e;
-                                        td7.innerHTML=f;
-                                        td8.innerHTML=i;
-                                        td9.innerHTML=j;
-                                        td10.innerHTML=g;
-                                        td11.innerHTML=h;
-                                  td12.innerHTML='<button onclick="view1()"><i class="fas fa-edit"></i></button>'
-                                td13.innerHTML='<button onclick="remove1()"><i class="fas fa-trash"></i></button>'
+                                        td2.innerHTML=g;
+                                        td3.innerHTML=a;    //r=1,n-2,type-3,ap-4,op-5,v-6,t-7
+                                        td4.innerHTML=b;
+                                        td5.innerHTML=c;
+                                        td6.innerHTML=d;
+                                        td7.innerHTML=e;
+
+                                        td8.innerHTML=f;
+                                        //td9.innerHTML=j;
+                                        ////td10.innerHTML=g;
+                                        //td11.innerHTML=h;
+                                  td9.innerHTML='<button onclick="view1()"><i class="fas fa-edit"></i></button>'
+                                td10.innerHTML='<button onclick="remove1()"><i class="fas fa-trash"></i></button>'
                                         tbody.appendChild(trow)
                                         trow.appendChild(td1); 
                                         trow.appendChild(td2); 
@@ -1558,9 +1442,9 @@ function myFunction1() {
                                        trow.appendChild(td8);
                                        trow.appendChild(td9);
                                        trow.appendChild(td10);
-                                       trow.appendChild(td11);
-                                       trow.appendChild(td12);
-                                       trow.appendChild(td13);
+                                       //trow.appendChild(td11);
+                                       //trow.appendChild(td12);
+                                       //trow.appendChild(td13);
 
                                     }
 
@@ -1585,30 +1469,31 @@ function myFunction1() {
                             rowSelected.style.backgroundColor = "yellow";
                             rowSelected.className += " selected";
                            // msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
-                            var cn =rowSelected.cells[1].innerHTML;
-                            var rn= rowSelected.cells[2].innerHTML;
-                            var fn=rowSelected.cells[3].innerHTML;
-                            var ft=rowSelected.cells[4].innerHTML;
-                            var ap=rowSelected.cells[5].innerHTML;
-                            var op=rowSelected.cells[6].innerHTML;
-                            var fc=rowSelected.cells[7].innerHTML;
-                            var fct=rowSelected.cells[8].innerHTML;
-                            var ov=rowSelected.cells[9].innerHTML;
-                            var ot=rowSelected.cells[10].innerHTML;
+                            //var cn =rowSelected.cells[1].innerHTML;
+                            var fn= rowSelected.cells[2].innerHTML;
+                            var ft=rowSelected.cells[3].innerHTML;
+                            var ap=rowSelected.cells[4].innerHTML;
+                            var op=rowSelected.cells[5].innerHTML;
+                            var d=rowSelected.cells[6].innerHTML;
+
+                            var t=rowSelected.cells[7].innerHTML;
+                            //var fct=rowSelected.cells[8].innerHTML;
+                            ////var ov=rowSelected.cells[9].innerHTML;
+                            //var ot=rowSelected.cells[10].innerHTML;
                             //var fct=rowSelected.cells[8].innerHTML;
                            // var fp=rowSelected.cells[9].innerHTML;
                            //alert(fn+fr+ft+st+et);
                            var data=[];
-                           data.push(cn);
-                           data.push(rn);
+                          // data.push(cn);
+                           //data.push(rn);
                            data.push(fn);
                            data.push(ft);
                            data.push(ap);
                            data.push(op);
-                           data.push(fc);
-                           data.push(fct);
-                           data.push(ov);
-                           data.push(ot);
+                           //data.push(fc);
+                           //data.push(fct);
+                           data.push(d);
+                           data.push(t);
                            sessionStorage.setItem('offervalues',data);
                            window.open('edit_food_offer.html','_self');
                         }
@@ -1636,16 +1521,13 @@ function myFunction1() {
                             rowSelected.style.backgroundColor = "yellow";
                             rowSelected.className += " selected";
                            // msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
-                            var fn=rowSelected.cells[3].innerHTML;
-                            var ft=rowSelected.cells[4].innerHTML;
-                            var fc=rowSelected.cells[7].innerHTML;
-                            var fct=rowSelected.cells[8].innerHTML;
+                            var fn=rowSelected.cells[2].innerHTML;
+                           // var ft=rowSelected.cells[4].innerHTML;
+                            //var fc=rowSelected.cells[7].innerHTML;
+                            //var fct=rowSelected.cells[8].innerHTML;
 
-                              firebase.database().ref('RestaurantOffers/'+ft+'/'+fn).remove()
-                database.ref('Restaurant/nonveg/13%12435,80%07475/menu/'+ft+'/'+fc+'/'+fct+'/'+fn+'/').update({
-                                  offer:"no"
-                          });
-                              //firebase.database().ref('Pending Drivers/'+dph).remove()
+                              firebase.database().ref('Offers/'+fn).remove()
+                
 
                               alert('deleted')
                               location.reload();
@@ -1655,1131 +1537,12 @@ function myFunction1() {
                     }
 
                                   }
-                                      function load1(){
-                                      ////////////southindian starts///////
-                                        firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/South Indian/soup/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                    let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                              }
-                                              );
                             
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/South Indian/starters/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/South Indian/tiffin/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/South Indian/meals/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/South Indian/snacks/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/South Indian/gravy/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/South Indian/maindish/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                          firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/South Indian/beverages/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         ////////////southindian over///////
-                                         ////////////northindian starts///////
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/North Indian/soup/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/North Indian/starters/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/North Indian/tiffin/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/North Indian/meals/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/North Indian/snacks/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                               let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/North Indian/gravy/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/North Indian/main-dish/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                          firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/North Indian/beverages/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         //////////////northindian ends//////
-
-                                         ////////////chinese starts///////
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Chinese/soup/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Chinese/starters/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Chinese/tiffin/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                               let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Chinese/meals/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Chinese/snacks/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Chinese/gravy/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Chinese/main-dish/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                           firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Chinese/beverages/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         ////////////chinese over///////
-
-                                         ////////////american starts///////
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/American/soup/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/American/starters/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/American/tiffin/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/American/meals/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/American/snacks/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/American/gravy/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/American/main-dish/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                           firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/American/beverages/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         ////////////american over///////
-
-                                         ////////////arabic starts///////
-                                        firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Arabic/soup/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Arabic/starters/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Arabic/tiffin/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Arabic/meals/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Arabic/snacks/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Arabic/gravy/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Arabic/main-dish/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                            firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/nonveg/Arabic/beverages/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='nonveg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         ////////////arabic over///////
-                                    }
-                                       function load2(){
-                                      ////////////southindian starts///////
-                                        firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/South Indian/soup/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/South Indian/starters/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/South Indian/tiffin/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/South Indian/meals/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/South Indian/snacks/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/South Indian/gravy/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/South Indian/maindish/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                               let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/South Indian/beverages/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                               let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         ////////////southindian over///////
-                                         ////////////northindian starts///////
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/North Indian/soup/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/North Indian/starters/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/North Indian/tiffin/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/North Indian/meals/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/North Indian/snacks/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/North Indian/gravy/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/North Indian/main-dish/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                            firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/North Indian/beverages/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         //////////////northindian ends//////
-
-                                         ////////////chinese starts///////
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Chinese/soup/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Chinese/starters/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                              let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Chinese/tiffin/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Chinese/meals/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Chinese/snacks/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Chinese/gravy/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                               let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Chinese/main-dish/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                               let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                             firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Chinese/beverages/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                               let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         ////////////chinese over///////
-
-                                         ////////////american starts///////
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/American/soup/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/American/starters/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/American/tiffin/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/American/meals/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/American/snacks/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/American/gravy/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/American/main-dish/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/American/beverages/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         ////////////american over///////
-
-                                         ////////////arabic starts///////
-                                        firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Arabic/soup/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Arabic/starters/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Arabic/tiffin/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Arabic/meals/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Arabic/snacks/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Arabic/gravy/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                  let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-    
-                                                }
-                                                );
-                            
-                                        });
-                                         firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Arabic/main-dish/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                          firebase.database().ref("Restaurant/nonveg/13%12435,80%07475/menu/veg/Arabic/beverages/").once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                 let a='pure veg'
-                                                    let b=ChildSnapshot.val().foodname;
-                                                    let c=ChildSnapshot.val().offer;
-                                                    if(c=='yes'){
-                                                      getvalue(a,b)
-                                                    }
-                                                }
-                                                );
-                            
-                                        });
-                                    }
-  /////////////////////////restaurant offer table funcationlity ends here/////////////////////////////////////
                                     //window.onload(get());
                                     //window.addEventListener('load',get);
-                                    window.addEventListener('load',retrive);
-                                    window.addEventListener('load',load1);
-                                    window.addEventListener('load',load2);
+                                    //window.addEventListener('load',retrive);
+                                    //window.addEventListener('load',load1);
+                                    window.addEventListener('load',load);
                                     
     
                              
