@@ -139,7 +139,7 @@
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                   <div class="bg-white py-2 collapse-inner rounded">
                       <h6 class="collapse-header">Orders</h6>
-                      <a class="collapse-item" href="accept_orders.html">Accept/Decline Orders</a>
+                      <a class="collapse-item" href="accept_orders.html">Pending Orders</a>
                       <!--<a class="collapse-item" href="order_items(driver)part2.html">Assigning Orders</a>-->
                       <a class="collapse-item" href="active_orders(table).html">Active Orders</a>
                       <a class="collapse-item" href="delivery_orders(table).html">Delivered Orders</a>
@@ -282,7 +282,8 @@
                                       <th>Customer Phone<br><button  onclick="sortTable3()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable31()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
                                     <th>Order Total<br><button  onclick="sortTable4()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable41()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
                                     <th>Payment Method</th><br><!----<button onclick="sortTable5()">Z-A</button><button onclick="sortTable51()">A-Z</button>    -->                              
-                                    <th>Order date<br><button  onclick="sortTable5()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable51()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>                                   
+                                    <th>Order date<br><button  onclick="sortTable5()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable51()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>     
+                                                                  
                                     <th>Order status<br><button  onclick="sortTable6()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable61()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
                                   </tr>
                              </thead>
@@ -818,13 +819,13 @@ function sortTable61() {
                             <script>
                                 // Your web app's Firebase configuration
                                 var firebaseConfig = {
-                                  apiKey: "AIzaSyBGQsw6dLVCQ_utGY7SHLBfg7EckVz9W0o",
-                                  authDomain: "star-delivery-38f25.firebaseapp.com",
-                                  databaseURL: "https://star-delivery-38f25-default-rtdb.firebaseio.com",
-                                  projectId: "star-delivery-38f25",
-                                  storageBucket: "star-delivery-38f25.appspot.com",
-                                  messagingSenderId: "351160619379",
-                                  appId: "1:351160619379:web:9de85e6098b55a5ace7506"
+                                  apiKey: "AIzaSyDJQFRw3KYvAyFaRLb-Z-ZS9QlXkAQMZiQ",
+  authDomain: "fishnrice-bc3a7.firebaseapp.com",
+  databaseURL: "https://fishnrice-bc3a7-default-rtdb.firebaseio.com",
+  projectId: "fishnrice-bc3a7",
+  storageBucket: "fishnrice-bc3a7.appspot.com",
+  messagingSenderId: "227580860494",
+  appId: "1:227580860494:web:5e6438c19ddf23276f8b1f"
                                 };
                                 // Initialize Firebase
                                 firebase.initializeApp(firebaseConfig);
@@ -834,8 +835,8 @@ function sortTable61() {
                             // Set database variable
                             var database = firebase.database()
         ////////////////////////function for veg retivel starts here//////////////////////////////
-                            var f=0;
-                                    function addtable(a,b,c,d,e,k,z){
+                            var k=0;
+                                    function addtable(a,b,c,d,e,f,g){
                                         
                                         var tbody=document.getElementById('tbody1');
                                         var trow=document.createElement('tr');
@@ -847,15 +848,15 @@ function sortTable61() {
                                         var td6=document.createElement('td');
                                         var td7=document.createElement('td');
                                         var td8=document.createElement('td');
-                                        f=f+1;
-                                        td1.innerHTML=(f);
+                                        k=k+1;
+                                        td1.innerHTML=(k);
                                         td2.innerHTML=a;
                                         td3.innerHTML=b;
                                         td4.innerHTML=c;
-                                        td5.innerHTML=d;
-                                        td6.innerHTML=e;
-                                        td7.innerHTML=k;
-                                        td8.innerHTML=z;
+                                        td5.innerHTML=e;
+                                        td6.innerHTML=f;
+                                        td7.innerHTML=d;
+                                        td8.innerHTML=g;
                                         tbody.appendChild(trow)
                                         trow.appendChild(td1); 
                                         trow.appendChild(td2); 
@@ -868,55 +869,107 @@ function sortTable61() {
                                     }
                             
                                   
-                                    function retrive(dateval){
-                                      var date = dateval;
-                                        firebase.database().ref('Orders/'+date+'/').once('value',function(snapshot){
-                                            snapshot.forEach(
-                                                function(ChildSnapshot){
-                                                    let a=ChildSnapshot.val().order_id;
-                                                    let b=ChildSnapshot.val().user_name;
-                                                    let c=ChildSnapshot.val().phone_number;
-                                                    //let d=ChildSnapshot.child("Location/user_location").val();
-                                                    let d=ChildSnapshot.val().total_amount;
-                                                    let e=ChildSnapshot.val().payment_method;
-                                                    let k=date;
-                                                    let z=ChildSnapshot.val().status;
-                                                    //add(a,b,c,d,e);
-                                                    //console.log(a,b,c,d,e);
-                                                    addtable(a,b,c,d,e,k,z);
-                                                    //console.log(d.length);
-                            
-                                                }
-                                                );
-                            
-                                        });
-                                       
-                                    }
-                                    function goodata(){
-                                      let refe=firebase.database().ref('Orders');
-                                                //console.log(refe);
-                                                refe.on('value',godata)
-                                                //console.log(godata)
-                                                function godata(data){
-                                          let info = data.val();
-                                          //console.log(info)
-                                          let keys=Object.keys(info);
-                                          //console.log(keys)
-                                          for(var i=0;i<keys.length;i++){
-                                            //console.log(keys[i]);
-                                            retrive(keys[i]);
-                                          }
-                                          //sessionStorage.setItem('orderid',keys[0]);
-                                          //console.log(keys.length);
-                                          counters=keys.length;//this says how many records/childnodes are there in that particular firebase db 
-                                          //console.log(counters);
-                                          //document.getElementById('para').innerHTML='The Number Of Pending Orders = '+counters;
-                                          //get();
-                                    }
-                              
-                            }
-                                   // window.addEventListener('load',retrive);
-                                    window.addEventListener('load',goodata);
+                                    
+                                    function tablevalue(x,val){
+          console.log(x,val);
+          var today = new Date();
+          var dd = today.getDate();
+
+          var mm = today.getMonth()+1; 
+          var yyyy = today.getFullYear();
+          if(dd<10) 
+          {
+              dd='0'+dd;
+          } 
+
+          if(mm<10) 
+          {
+              mm='0'+mm;
+          } 
+          today = dd+'-'+mm+'-'+yyyy;
+          for(var i=0;i<val.length;i++)
+          {
+            var user_ref = database.ref('Orders/'+today+'/'+x+'/'+val[i]+'/')
+                      user_ref.on('value', function(snapshot) {
+                        var data = snapshot.val()
+                        let a=data.order_id;    
+                        let b=data.user_name;
+                        let c=data.phone_number;
+                        let d=data.date;
+                        let e=data.total_amount;
+                        let f=data.payment_method;
+                        let g=data.status;
+
+                        //console.log(ChildSnapshot.val().driver_name);
+                        //let f=ChildSnapshot.val().location;
+                        
+                        addtable(a,b,c,d,e,f,g);
+                        })
+          }
+          
+        }
+        /////////////////own idea///////////
+        var counters=0;
+        function loading(){
+         var today = new Date();
+          var dd = today.getDate();
+
+          var mm = today.getMonth()+1; 
+          var yyyy = today.getFullYear();
+          if(dd<10) 
+          {
+              dd='0'+dd;
+          } 
+
+          if(mm<10) 
+          {
+              mm='0'+mm;
+          } 
+          today = dd+'-'+mm+'-'+yyyy;
+          console.log(today);
+        let refe=firebase.database().ref('Orders/'+today+'/');
+        //console.log(refe);
+        refe.on('value',godata)
+        //console.log(godata)
+        function godata(data){
+            let info = data.val();
+            if(info!=null){///this im checking null ,if db is there it wont be null,else it will be null
+            //console.log(info)
+            let keys=Object.keys(info);
+            //console.log(keys)
+            //console.log(keys[0].payment_method);
+           // sessionStorage.setItem('orderid',keys[0]);
+            //console.log(keys.length);
+            counters=keys.length;//this says how many records/childnodes are there in that particular firebase db 
+            //console.log(counters);
+            //document.getElementById('para').innerHTML='The Number Of Orders = '+counters;
+            //get();
+             for(var i=0;i<keys.length;i++)
+             {
+                 let refe=firebase.database().ref('Orders/'+today+'/'+keys[i]+'/')
+              refe.on('value',godata1)
+              function godata1(data)
+              {
+                let info1 = data.val();
+                let keys1=Object.keys(info1);
+                  //console.log(keys1)
+                  tablevalue(keys[i],keys1);
+              }
+              
+             }
+
+        }
+            else{
+                alert('novalue');
+                //console.log(counters);
+                //document.getElementById('para').innerHTML='The Number Of Orders = '+counters;
+            }
+        }
+        ////////////////////////////own idea ends here/////////////////////////////
+        //window.onload(get());
+    }
+        window.addEventListener('load',loading);
+  
                                     //window.addEventListener('load',retrive2);
       
     
