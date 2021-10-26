@@ -246,6 +246,13 @@
 
                 
                 <!-- End of Topbar -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                  <h1 class="h3 mb-0 text-gray-800"></h1>
+      
+                  <button onclick="downloadCSVFile()" class="btn btn-primary btn-user" style="font-size: x-small;" id="download-button"> <i class="fas fa-download fa-sm text-white-50"></i>Download report</button>
+              
+          </div>
+                
                 
 
                 <!-- Begin Page Content -->
@@ -259,6 +266,8 @@
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Account statement Details</h6>
+                           
+                            
                             
                         </div>
                         <div class="card-body">
@@ -282,13 +291,14 @@
                                       <th>Customer Phone<br><button  onclick="sortTable3()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable31()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
                                     <th>Order Total<br><button  onclick="sortTable4()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable41()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
                                     <th>Payment Method</th><br><!----<button onclick="sortTable5()">Z-A</button><button onclick="sortTable51()">A-Z</button>    -->                              
-                                    <th>Order date<br><button  onclick="sortTable5()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable51()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>     
+                                    <th id="orderdate">Order date<br><button  onclick="sortTable5()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable51()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>     
                                                                   
-                                    <th>Order status<br><button  onclick="sortTable6()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable61()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
+                                    <th >Order status<br><button  onclick="sortTable6()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable61()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
                                   </tr>
                              </thead>
                               <tbody id='tbody1'>
                               </tbody>
+                              <button class= "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="window.print()">Print   </button>
                             </table>
                            
                         </div>
@@ -870,46 +880,42 @@ function sortTable61() {
                             
                                   
                                     
-                                    function tablevalue(x,val){
-          console.log(x,val);
-          var today = new Date();
-          var dd = today.getDate();
-
-          var mm = today.getMonth()+1; 
-          var yyyy = today.getFullYear();
-          if(dd<10) 
-          {
-              dd='0'+dd;
-          } 
-
-          if(mm<10) 
-          {
-              mm='0'+mm;
-          } 
-          today = dd+'-'+mm+'-'+yyyy;
-          for(var i=0;i<val.length;i++)
-          {
-            var user_ref = database.ref('Orders/'+today+'/'+x+'/'+val[i]+'/')
+                                    
+        /////////////////own idea///////////
+        var counters=0;
+        function retrive(a,b,x,val){
+                      total=0;
+                      var date=a;
+                      console.log(val);
+                      
+                      //for(var i=0;i<val.length;i++)
+         // {
+            var user_ref = database.ref('Orders/'+a+'/'+b+'/'+x+'/')
                       user_ref.on('value', function(snapshot) {
-                        var data = snapshot.val()
-                        let a=data.order_id;    
-                        let b=data.user_name;
-                        let c=data.phone_number;
-                        let d=data.date;
-                        let e=data.total_amount;
-                        let f=data.payment_method;
-                        let g=data.status;
+
+                        var data = snapshot.val();
+                        let g1=data.status;
+                        
+                        let a1=data.order_id;    
+                        let b1=data.user_name;
+                        let c1=data.phone_number;
+                        let d1=data.date;
+                        let e1=data.total_amount;
+                        //var s=parseInt(e);
+                        //total=total+s;
+
+                        let f1=data.payment_method;
+                        //let g=data.status;
 
                         //console.log(ChildSnapshot.val().driver_name);
                         //let f=ChildSnapshot.val().location;
                         
-                        addtable(a,b,c,d,e,f,g);
+                        //pusharray(date,total);
+                        addtable(a1,b1,c1,d1,e1,f1,g1);
                         })
-          }
-          
-        }
-        /////////////////own idea///////////
-        var counters=0;
+          //}
+                                       
+                                    }
         function loading(){
          var today = new Date();
           var dd = today.getDate();
@@ -927,7 +933,7 @@ function sortTable61() {
           } 
           today = dd+'-'+mm+'-'+yyyy;
           console.log(today);
-        let refe=firebase.database().ref('Orders/'+today+'/');
+        let refe=firebase.database().ref('Orders/');
         //console.log(refe);
         refe.on('value',godata)
         //console.log(godata)
@@ -942,18 +948,46 @@ function sortTable61() {
             //console.log(keys.length);
             counters=keys.length;//this says how many records/childnodes are there in that particular firebase db 
             //console.log(counters);
-            //document.getElementById('para').innerHTML='The Number Of Orders = '+counters;
+           // document.getElementById('para').innerHTML='The Number Of Orders = '+counters;
             //get();
              for(var i=0;i<keys.length;i++)
              {
-                 let refe=firebase.database().ref('Orders/'+today+'/'+keys[i]+'/')
+                 let refe=firebase.database().ref('Orders/'+keys[i]+'/')
               refe.on('value',godata1)
               function godata1(data)
               {
                 let info1 = data.val();
                 let keys1=Object.keys(info1);
+                for(var j=0;j<keys1.length;j++)
+                {
+                  let refe=firebase.database().ref('Orders/'+keys[i]+'/'+keys1[j]+'/')
+                  refe.on('value',godata2)
+                  function godata2(data)
+                  {
+                    let info2 = data.val();
+                let keys2=Object.keys(info2);
+                for(var k=0;k<keys2.length;k++)
+                {
+                  let refe=firebase.database().ref('Orders/'+keys[i]+'/'+keys1[j]+'/'+keys2[k]+'/')
+                  refe.on('value',godata3)
+                  function godata3(data)
+                  {
+                    let info3 = data.val();
+                let keys3=Object.keys(info3);
+                retrive(keys[i],keys1[j],keys2[k],keys3);
+                
+                  }
+
+                }
+                console.log(keys,keys1,keys2,keys3)
+               
+                  //retrive(keys1[i],keys2)
+                
+
+                  }
+                }
                   //console.log(keys1)
-                  tablevalue(keys[i],keys1);
+                  //retrieve(keys[i],keys1);
               }
               
              }
@@ -971,6 +1005,46 @@ function sortTable61() {
         window.addEventListener('load',loading);
   
                                     //window.addEventListener('load',retrive2);
+                                    
+
+function htmlToCSV(html, filename) {
+	var data = [];
+	var rows = document.querySelectorAll("table tr");
+			
+	for (var i = 0; i < rows.length; i++) {
+		var row = [], cols = rows[i].querySelectorAll("td, th");
+				
+		for (var j = 0; j < cols.length; j++) {
+		        row.push(cols[j].innerText);
+                 }
+		        
+		data.push(row.join(",")); 		
+	}
+
+	downloadCSVFile(data.join("\n"), filename);
+}
+function downloadCSVFile(csv, filename) {
+	var csv_file, download_link;
+
+	csv_file = new Blob([csv], {type: "text/csv"});
+
+	download_link = document.createElement("a");
+
+	download_link.download = filename;
+
+	download_link.href = window.URL.createObjectURL(csv_file);
+
+	download_link.style.display = "none";
+
+	document.body.appendChild(download_link);
+
+	download_link.click();
+}
+document.getElementById("download-button").addEventListener("click", function () {
+	var html = document.querySelector("table").outerHTML;
+	htmlToCSV(html, "Reports.csv");
+});
+
       
     
     </script>
