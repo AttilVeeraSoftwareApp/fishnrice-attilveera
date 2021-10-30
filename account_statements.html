@@ -278,6 +278,16 @@
                             <p style="color:red; font-size: x-small;">Enter in DD-MM-YYYY format</p>
                           </div>
 
+                          <!--from to date form elements-->
+                          <div class="simple">
+                            from date:
+                            <input type="text" id="fromdate"   title="dd-mm-yyyy">
+                            <p style="color:red; font-size: x-small;">Enter in DD-MM-YYYY format</p>
+                            To date:
+                            <input type="text" id="todate"  title="dd-mm-yyyy">
+                            <p style="color:red; font-size: x-small;">Enter in DD-MM-YYYY format</p>
+                          </div>
+                          <!--from to date form elements end-->
                             <div class="card-body">
                               <div class="table-responsive">
                             <table id="myTable">
@@ -291,14 +301,14 @@
                                       <th>Customer Phone<br><button  onclick="sortTable3()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable31()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
                                     <th>Order Total<br><button  onclick="sortTable4()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable41()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
                                     <th>Payment Method</th><br><!----<button onclick="sortTable5()">Z-A</button><button onclick="sortTable51()">A-Z</button>    -->                              
-                                    <th id="orderdate">Order date<br><button  onclick="sortTable5()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable51()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>     
+                                    <th id = "tableDate">Order date<br><button  onclick="sortTable5()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable51()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>     
                                                                   
                                     <th >Order status<br><button  onclick="sortTable6()"class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-up-alt"></i></button><button onclick="sortTable61()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-sort-amount-down"></i></button></th>
                                   </tr>
                              </thead>
                               <tbody id='tbody1'>
                               </tbody>
-                              <button class= "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="window.print()">Print   </button>
+                              <!--<button class= "d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="window.print()">Print   </button>-->
                             </table>
                            
                         </div>
@@ -1007,11 +1017,91 @@ function sortTable61() {
                                     //window.addEventListener('load',retrive2);
                                     
 
+                                    var datearray, csvdateindexarray=[], finalcsv=[];
+	function getCol(col) {
+   var tab = document.getElementById('myTable');
+    var l = tab.rows.length;
+
+    var s = [];
+    for ( var i = 0; i < l; i++ )
+    {
+        var tr = tab.rows[i];
+
+        var cll = tr.cells[col];
+
+        //s += ' ' + cll.innerText;
+        s.push(cll.innerText);
+    }
+    console.log(s);
+    return s;
+}
+function generateDateList(from, to) {
+
+    var getDate = function(date) { //Mysql Format
+        var m = date.getMonth(), d = date.getDate();
+        //return date.getFullYear() + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d);
+        return (d < 10 ? '0' + d : d) + '-' + (m < 10 ? '0' + m : m) + '-' + date.getFullYear();
+    }
+    var fs = from.split('-'), startDate = new Date(fs[2], fs[1], fs[0]), result = [getDate(startDate)], start = startDate.getTime(), ts, end;
+
+    if ( typeof to == 'undefined') {
+        end = new Date().getTime();
+    } else {
+        ts = to.split('-');
+        end = new Date(ts[2], ts[1], ts[0]).getTime();
+    }
+    while (start < end) {
+        start += 86400000;
+        startDate.setTime(start);
+        result.push(getDate(startDate));
+    }
+   // console.log(result);
+   datearray=result;
+    return result;
+}
 function htmlToCSV(html, filename) {
+	var fromdate=document.getElementById("fromdate").value;
+  var todate=document.getElementById("todate").value;
+  var table=document.getElementById("mytable");
 	var data = [];
 	var rows = document.querySelectorAll("table tr");
-			
-	for (var i = 0; i < rows.length; i++) {
+  var index = document.getElementById("tableDate").cellIndex;
+  var res = generateDateList(fromdate, todate);
+  var dateList = getCol(7);
+  var header="S.No,Order ID,Customer Name,Customer Phone,Order Total,Payment Method,Order date,Order status";
+  finalcsv.push(header);
+
+
+	//for(var x = 1; x < table.rows.length;x++)
+	//{
+		//var objcells = table.rows.item(x).cells;
+		//var currDate = String(objcells.item(index).innerHTML);//.split('-');
+		//alert(currDate);
+		//console.log(res.indexOf(currDate) != -1);
+		//if(res.indexOf(String(currDate)) != -1){
+			//for(var x = 1; x < table.rows.length;x++)
+			//if(res.indexOf(dateList[x]) > -1)
+			for (var i = 0; i < rows.length; i++) 
+			{
+				var row = [], cols = rows[i].querySelectorAll("td, th");
+				for (var j = 0; j < cols.length; j++) 
+				{
+          //console.log("current record:"+cols[j].innerText);
+                                    
+                          if (datearray.indexOf(cols[j].innerText) > -1) {
+                              //In the array!
+                              csvdateindexarray.push(i);
+                              console.log("current date:"+cols[j].innerText);
+                              //row.push(cols[j].innerText);
+                          } 
+				
+          
+          //console.log()
+        }
+		//data.push(row.join(",")); 
+   
+			}
+      for (var i = 0; i < rows.length; i++) {
 		var row = [], cols = rows[i].querySelectorAll("td, th");
 				
 		for (var j = 0; j < cols.length; j++) {
@@ -1020,10 +1110,19 @@ function htmlToCSV(html, filename) {
 		        
 		data.push(row.join(",")); 		
 	}
+      for( var k=0;k<csvdateindexarray.length;k++)
+      {
+        console.log(data[csvdateindexarray[k]]);
+        finalcsv.push(data[csvdateindexarray[k]]);
+      }
 
-	downloadCSVFile(data.join("\n"), filename);
+      console.log("final csv:"+finalcsv);	
+	//}
+	downloadCSVFile(finalcsv.join("\n"), filename);
 }
 function downloadCSVFile(csv, filename) {
+  
+  //alert(fromdate);
 	var csv_file, download_link;
 
 	csv_file = new Blob([csv], {type: "text/csv"});
@@ -1042,10 +1141,28 @@ function downloadCSVFile(csv, filename) {
 }
 document.getElementById("download-button").addEventListener("click", function () {
 	var html = document.querySelector("table").outerHTML;
-	htmlToCSV(html, "Reports.csv");
-});
+  var today = new Date();
+  var today1= new Date();
+                var dd = today.getDate();
 
-      
+                var mm = today.getMonth()+1; 
+                var yyyy = today.getFullYear();
+                var time = today.getHours();
+                var min=today.getMinutes();
+                var sec= today.getSeconds();
+                if(dd<10) 
+                {
+                    dd='0'+dd;
+                } 
+
+                if(mm<10) 
+                {
+                    mm='0'+mm;
+                } 
+                today = dd+'-'+mm+'-'+yyyy;
+                today1= time+':'+min+':'+sec;
+        htmlToCSV(html, today+'_'+today1+"_Report.csv");
+});
     
     </script>
 
