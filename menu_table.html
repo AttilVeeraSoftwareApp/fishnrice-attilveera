@@ -228,8 +228,8 @@
                 
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                   <h1 class="h3 mb-0 text-gray-800"></h1>
-             <!-- <a href="fromrestaurantmenuform.html" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                      class="fas fa-plus fa-sm text-white-50"></i>Add Menu item</a>-->
+              <a href="add_menu(with_image_adding)starappdevlivery (1).html" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                      class="fas fa-plus fa-sm text-white-50"></i>Add Menu item</a>
           </div>
                 
 
@@ -1184,7 +1184,34 @@ function sortTable61() {
                                                 );
                             
                                         });
-                                        
+                                        firebase.database().ref("Menu/Starters/Others/").once('value',function(snapshot){
+                                            snapshot.forEach(
+                                                function(ChildSnapshot){
+                                                  /*  let a=ChildSnapshot.val().name;
+                                                    let b=ChildSnapshot.val().email;
+                                                    let c=ChildSnapshot.val().phone;
+                                                    let x=ChildSnapshot.val().Latitude;
+                                                    let y=ChildSnapshot.val().Loongtitude;
+                                                    let xy=x+','+y;
+                                                    //let d=ChildSnapshot.child("Location/user_location").val();
+                                                    let d=ChildSnapshot.val().address;*/
+                                                    let a = ChildSnapshot.val().foodname;
+                                                    let b = ChildSnapshot.val().foodrate;
+                                                    let c='yes';
+                                                    let d=ChildSnapshot.val().starttime;
+                                                    let e=ChildSnapshot.val().endtime;
+                                                    let f='nonveg'
+                                                    let h='Others';
+                                                    let g='Starters';
+                                                   // let i=ChildSnapshot.val().period;
+                                                    
+                                                    //console.log(a,b);
+                                                    addtable(a,b,c,d,e,f,g,h);
+    
+                                                }
+                                                );
+                            
+                                        });
                                          
                                         
                                     }
